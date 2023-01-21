@@ -1,0 +1,1673 @@
+[
+    {
+        "label": "print_function",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "base64,",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64.",
+        "description": "base64.",
+        "detail": "base64.",
+        "documentation": {}
+    },
+    {
+        "label": "FunctionType",
+        "importPath": "types",
+        "description": "types",
+        "isExtraImport": true,
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "NamedTemporaryFile",
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "isExtraImport": true,
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "format_exc",
+        "importPath": "traceback",
+        "description": "traceback",
+        "isExtraImport": true,
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
+        "label": "print_exc",
+        "importPath": "traceback",
+        "description": "traceback",
+        "isExtraImport": true,
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
+        "label": "normalize",
+        "importPath": "unicodedata",
+        "description": "unicodedata",
+        "isExtraImport": true,
+        "detail": "unicodedata",
+        "documentation": {}
+    },
+    {
+        "label": "monkey",
+        "importPath": "gevent",
+        "description": "gevent",
+        "isExtraImport": true,
+        "detail": "gevent",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "gevent",
+        "description": "gevent",
+        "isExtraImport": true,
+        "detail": "gevent",
+        "documentation": {}
+    },
+    {
+        "label": "spawn",
+        "importPath": "gevent",
+        "description": "gevent",
+        "isExtraImport": true,
+        "detail": "gevent",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "RequestException",
+        "importPath": "requests.exceptions",
+        "description": "requests.exceptions",
+        "isExtraImport": true,
+        "detail": "requests.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPResponse",
+        "importPath": "bottle",
+        "description": "bottle",
+        "isExtraImport": true,
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "auth_basic",
+        "importPath": "bottle",
+        "description": "bottle",
+        "isExtraImport": true,
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "get",
+        "importPath": "bottle",
+        "description": "bottle",
+        "isExtraImport": true,
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "post",
+        "importPath": "bottle",
+        "description": "bottle",
+        "isExtraImport": true,
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "bottle",
+        "description": "bottle",
+        "isExtraImport": true,
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "run",
+        "importPath": "bottle",
+        "description": "bottle",
+        "isExtraImport": true,
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "static_file",
+        "importPath": "bottle",
+        "description": "bottle",
+        "isExtraImport": true,
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "DictProperty",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class DictProperty(object):\n    \"\"\"Property that maps to a key in a local dict-like attribute.\"\"\"\n    def __init__(self, attr, key=None, read_only=False):\n        self.attr, self.key, self.read_only = attr, key, read_only\n    def __call__(self, func):\n        functools.update_wrapper(self, func, updated=[])\n        self.getter, self.key = func, self.key or func.__name__\n        return self\n    def __get__(self, obj, cls):\n        if obj is None:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "cached_property",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class cached_property(object):\n    \"\"\"A property that is only computed once per instance and then replaces\n    itself with an ordinary attribute. Deleting the attribute resets the\n    property.\"\"\"\n    def __init__(self, func):\n        update_wrapper(self, func)\n        self.func = func\n    def __get__(self, obj, cls):\n        if obj is None:\n            return self",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "lazy_attribute",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class lazy_attribute(object):\n    \"\"\"A property that caches itself to the class object.\"\"\"\n    def __init__(self, func):\n        functools.update_wrapper(self, func, updated=[])\n        self.getter = func\n    def __get__(self, obj, cls):\n        value = self.getter(cls)\n        setattr(cls, self.__name__, value)\n        return value\n###############################################################################",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "BottleException",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class BottleException(Exception):\n    \"\"\"A base class for exceptions used by bottle.\"\"\"\n    pass\n###############################################################################\n# Routing ######################################################################\n###############################################################################\nclass RouteError(BottleException):\n    \"\"\"This is a base class for all routing related exceptions\"\"\"\nclass RouteReset(BottleException):\n    \"\"\"If raised by a plugin or request handler, the route is reset and all",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "RouteError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class RouteError(BottleException):\n    \"\"\"This is a base class for all routing related exceptions\"\"\"\nclass RouteReset(BottleException):\n    \"\"\"If raised by a plugin or request handler, the route is reset and all\n    plugins are re-applied.\"\"\"\nclass RouterUnknownModeError(RouteError):\n    pass\nclass RouteSyntaxError(RouteError):\n    \"\"\"The route parser found something not supported by this router.\"\"\"\nclass RouteBuildError(RouteError):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "RouteReset",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class RouteReset(BottleException):\n    \"\"\"If raised by a plugin or request handler, the route is reset and all\n    plugins are re-applied.\"\"\"\nclass RouterUnknownModeError(RouteError):\n    pass\nclass RouteSyntaxError(RouteError):\n    \"\"\"The route parser found something not supported by this router.\"\"\"\nclass RouteBuildError(RouteError):\n    \"\"\"The route could not be built.\"\"\"\ndef _re_flatten(p):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "RouterUnknownModeError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class RouterUnknownModeError(RouteError):\n    pass\nclass RouteSyntaxError(RouteError):\n    \"\"\"The route parser found something not supported by this router.\"\"\"\nclass RouteBuildError(RouteError):\n    \"\"\"The route could not be built.\"\"\"\ndef _re_flatten(p):\n    \"\"\"Turn all capturing groups in a regular expression pattern into\n    non-capturing groups.\"\"\"\n    if \"(\" not in p:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "RouteSyntaxError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class RouteSyntaxError(RouteError):\n    \"\"\"The route parser found something not supported by this router.\"\"\"\nclass RouteBuildError(RouteError):\n    \"\"\"The route could not be built.\"\"\"\ndef _re_flatten(p):\n    \"\"\"Turn all capturing groups in a regular expression pattern into\n    non-capturing groups.\"\"\"\n    if \"(\" not in p:\n        return p\n    return re.sub(",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "RouteBuildError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class RouteBuildError(RouteError):\n    \"\"\"The route could not be built.\"\"\"\ndef _re_flatten(p):\n    \"\"\"Turn all capturing groups in a regular expression pattern into\n    non-capturing groups.\"\"\"\n    if \"(\" not in p:\n        return p\n    return re.sub(\n        r\"(\\\\*)(\\(\\?P<[^>]+>|\\((?!\\?))\",\n        lambda m: m.group(0) if len(m.group(1)) % 2 else m.group(1) + \"(?:\",",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "Router",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class Router(object):\n    \"\"\"A Router is an ordered collection of route->target pairs. It is used to\n    efficiently match WSGI requests against a number of routes and return\n    the first target that satisfies the request. The target may be anything,\n    usually a string, ID or callable object. A route consists of a path-rule\n    and a HTTP method.\n    The path-rule is either a static path (e.g. `/contact`) or a dynamic\n    path that contains wildcards (e.g. `/wiki/<page>`). The wildcard syntax\n    and details on the matching order are described in docs:`routing`.\n    \"\"\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "Route",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class Route(object):\n    \"\"\"This class wraps a route callback along with route specific metadata and\n    configuration and applies Plugins on demand. It is also responsible for\n    turning an URL path rule into a regular expression usable by the Router.\n    \"\"\"\n    def __init__(\n        self,\n        app,\n        rule,\n        method,",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "Bottle",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class Bottle(object):\n    \"\"\"Each Bottle object represents a single, distinct web application and\n    consists of routes, callbacks, plugins, resources and configuration.\n    Instances are callable WSGI applications.\n    :param catchall: If true (default), handle all exceptions. Turn off to\n                     let debugging middleware handle exceptions.\n    \"\"\"\n    @lazy_attribute\n    def _global_config(cls):\n        cfg = ConfigDict()",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "BaseRequest",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class BaseRequest(object):\n    \"\"\"A wrapper for WSGI environment dictionaries that adds a lot of\n    convenient access methods and properties. Most of them are read-only.\n    Adding new attributes to a request actually adds them to the environ\n    dictionary (as 'bottle.request.ext.<name>'). This is the recommended\n    way to store and access request-specific data.\n    \"\"\"\n    __slots__ = (\"environ\",)\n    #: Maximum size of memory buffer for :attr:`body` in bytes.\n    MEMFILE_MAX = 102400",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HeaderProperty",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class HeaderProperty(object):\n    def __init__(self, name, reader=None, writer=None, default=\"\"):\n        self.name, self.default = name, default\n        self.reader, self.writer = reader, writer\n        self.__doc__ = \"Current value of the %r header.\" % name.title()\n    def __get__(self, obj, _):\n        if obj is None:\n            return self\n        value = obj.get_header(self.name, self.default)\n        return self.reader(value) if self.reader else value",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "BaseResponse",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class BaseResponse(object):\n    \"\"\"Storage class for a response body as well as headers and cookies.\n    This class does support dict-like case-insensitive item-access to\n    headers, but is NOT a dict. Most notably, iterating over a response\n    yields parts of the body and not the headers.\n    :param body: The response body as one of the supported types.\n    :param status: Either an HTTP status code (e.g. 200) or a status line\n                   including the reason phrase (e.g. '200 OK').\n    :param headers: A dictionary or a list of name-value pairs.\n    Additional keyword arguments are added to the list of headers.",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "LocalRequest",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class LocalRequest(BaseRequest):\n    \"\"\"A thread-local subclass of :class:`BaseRequest` with a different\n    set of attributes for each thread. There is usually only one global\n    instance of this class (:data:`request`). If accessed during a\n    request/response cycle, this instance always refers to the *current*\n    request (even on a multithreaded server).\"\"\"\n    bind = BaseRequest.__init__\n    environ = _local_property()\nclass LocalResponse(BaseResponse):\n    \"\"\"A thread-local subclass of :class:`BaseResponse` with a different",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "LocalResponse",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class LocalResponse(BaseResponse):\n    \"\"\"A thread-local subclass of :class:`BaseResponse` with a different\n    set of attributes for each thread. There is usually only one global\n    instance of this class (:data:`response`). Its attributes are used\n    to build the HTTP response at the end of the request/response cycle.\n    \"\"\"\n    bind = BaseResponse.__init__\n    _status_line = _local_property()\n    _status_code = _local_property()\n    _cookies = _local_property()",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPResponse",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class HTTPResponse(Response, BottleException):\n    def __init__(self, body=\"\", status=None, headers=None, **more_headers):\n        super(HTTPResponse, self).__init__(body, status, headers, **more_headers)\n    def apply(self, other):\n        other._status_code = self._status_code\n        other._status_line = self._status_line\n        other._headers = self._headers\n        other._cookies = self._cookies\n        other.body = self.body\nclass HTTPError(HTTPResponse):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class HTTPError(HTTPResponse):\n    default_status = 500\n    def __init__(\n        self, status=None, body=None, exception=None, traceback=None, **more_headers\n    ):\n        self.exception = exception\n        self.traceback = traceback\n        super(HTTPError, self).__init__(body, status, **more_headers)\n###############################################################################\n# Plugins ######################################################################",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "PluginError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class PluginError(BottleException):\n    pass\nclass JSONPlugin(object):\n    name = \"json\"\n    api = 2\n    def __init__(self, json_dumps=json_dumps):\n        self.json_dumps = json_dumps\n    def setup(self, app):\n        app.config._define(\n            \"json.enable\",",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "JSONPlugin",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class JSONPlugin(object):\n    name = \"json\"\n    api = 2\n    def __init__(self, json_dumps=json_dumps):\n        self.json_dumps = json_dumps\n    def setup(self, app):\n        app.config._define(\n            \"json.enable\",\n            default=True,\n            validate=bool,",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "TemplatePlugin",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class TemplatePlugin(object):\n    \"\"\"This plugin applies the :func:`view` decorator to all routes with a\n    `template` config parameter. If the parameter is a tuple, the second\n    element must be a dict with additional options (e.g. `template_engine`)\n    or default variables for the template.\"\"\"\n    name = \"template\"\n    api = 2\n    def setup(self, app):\n        app.tpl = self\n    def apply(self, callback, route):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "_ImportRedirect",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class _ImportRedirect(object):\n    def __init__(self, name, impmask):\n        \"\"\"Create a virtual package that redirects imports (see PEP 302).\"\"\"\n        self.name = name\n        self.impmask = impmask\n        self.module = sys.modules.setdefault(name, new_module(name))\n        self.module.__dict__.update(\n            {\"__file__\": __file__, \"__path__\": [], \"__all__\": [], \"__loader__\": self}\n        )\n        sys.meta_path.append(self)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "MultiDict",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class MultiDict(DictMixin):\n    \"\"\"This dict stores multiple values per key, but behaves exactly like a\n    normal dict in that it returns only the newest value for any given key.\n    There are special methods available to access the full list of values.\n    \"\"\"\n    def __init__(self, *a, **k):\n        self.dict = dict((k, [v]) for (k, v) in dict(*a, **k).items())\n    def __len__(self):\n        return len(self.dict)\n    def __iter__(self):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "FormsDict",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class FormsDict(MultiDict):\n    \"\"\"This :class:`MultiDict` subclass is used to store request form data.\n    Additionally to the normal dict-like item access methods (which return\n    unmodified data as native strings), this container also supports\n    attribute-like access to its values. Attributes are automatically de-\n    or recoded to match :attr:`input_encoding` (default: 'utf8'). Missing\n    attributes default to an empty string.\"\"\"\n    #: Encoding used for attribute values.\n    input_encoding = \"utf8\"\n    #: If true (default), unicode strings are first encoded with `latin1`",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HeaderDict",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class HeaderDict(MultiDict):\n    \"\"\"A case-insensitive version of :class:`MultiDict` that defaults to\n    replace the old value instead of appending it.\"\"\"\n    def __init__(self, *a, **ka):\n        self.dict = {}\n        if a or ka:\n            self.update(*a, **ka)\n    def __contains__(self, key):\n        return _hkey(key) in self.dict\n    def __delitem__(self, key):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "WSGIHeaderDict",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class WSGIHeaderDict(DictMixin):\n    \"\"\"This dict-like class wraps a WSGI environ dict and provides convenient\n    access to HTTP_* fields. Keys and values are native strings\n    (2.x bytes or 3.x unicode) and keys are case-insensitive. If the WSGI\n    environment contains non-native string values, these are de- or encoded\n    using a lossless 'latin1' character set.\n    The API will remain stable even on changes to the relevant PEPs.\n    Currently PEP 333, 444 and 3333 are supported. (PEP 444 is the only one\n    that uses non-native strings.)\n    \"\"\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class ConfigDict(dict):\n    \"\"\"A dict-like configuration storage with additional support for\n    namespaces, validators, meta-data, overlays and more.\n    This dict-like class is heavily optimized for read access. All read-only\n    methods as well as item access should be as fast as the built-in dict.\n    \"\"\"\n    __slots__ = (\n        \"_meta\",\n        \"_change_listener\",\n        \"_overlays\",",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "AppStack",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class AppStack(list):\n    \"\"\"A stack-like list. Calling it returns the head of the stack.\"\"\"\n    def __call__(self):\n        \"\"\"Return the current default application.\"\"\"\n        return self.default\n    def push(self, value=None):\n        \"\"\"Add a new :class:`Bottle` instance to the stack\"\"\"\n        if not isinstance(value, Bottle):\n            value = Bottle()\n        self.append(value)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "WSGIFileWrapper",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class WSGIFileWrapper(object):\n    def __init__(self, fp, buffer_size=1024 * 64):\n        self.fp, self.buffer_size = fp, buffer_size\n        for attr in \"fileno\", \"close\", \"read\", \"readlines\", \"tell\", \"seek\":\n            if hasattr(fp, attr):\n                setattr(self, attr, getattr(fp, attr))\n    def __iter__(self):\n        buff, read = self.buffer_size, self.read\n        part = read(buff)\n        while part:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "_closeiter",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class _closeiter(object):\n    \"\"\"This only exists to be able to attach a .close method to iterators that\n    do not support attribute assignment (most of itertools).\"\"\"\n    def __init__(self, iterator, close=None):\n        self.iterator = iterator\n        self.close_callbacks = makelist(close)\n    def __iter__(self):\n        return iter(self.iterator)\n    def close(self):\n        for func in self.close_callbacks:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "ResourceManager",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class ResourceManager(object):\n    \"\"\"This class manages a list of search paths and helps to find and open\n    application-bound resources (files).\n    :param base: default value for :meth:`add_path` calls.\n    :param opener: callable used to open resources.\n    :param cachemode: controls which lookups are cached. One of 'all',\n                     'found' or 'none'.\n    \"\"\"\n    def __init__(self, base=\"./\", opener=open, cachemode=\"all\"):\n        self.opener = opener",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "FileUpload",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class FileUpload(object):\n    def __init__(self, fileobj, name, filename, headers=None):\n        \"\"\"Wrapper for file uploads.\"\"\"\n        #: Open file(-like) object (BytesIO buffer or temporary file)\n        self.file = fileobj\n        #: Name of the upload form field\n        self.name = name\n        #: Raw filename as sent by the client (may contain unsafe characters)\n        self.raw_filename = filename\n        #: A :class:`HeaderDict` with additional headers (e.g. content-type)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "ServerAdapter",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class ServerAdapter(object):\n    quiet = False\n    def __init__(self, host=\"127.0.0.1\", port=8080, **options):\n        self.options = options\n        self.host = host\n        self.port = int(port)\n    def run(self, handler):  # pragma: no cover\n        pass\n    def __repr__(self):\n        args = \", \".join(\"%s=%s\" % (k, repr(v)) for k, v in self.options.items())",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "CGIServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class CGIServer(ServerAdapter):\n    quiet = True\n    def run(self, handler):  # pragma: no cover\n        from wsgiref.handlers import CGIHandler\n        def fixed_environ(environ, start_response):\n            environ.setdefault(\"PATH_INFO\", \"\")\n            return handler(environ, start_response)\n        CGIHandler().run(fixed_environ)\nclass FlupFCGIServer(ServerAdapter):\n    def run(self, handler):  # pragma: no cover",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "FlupFCGIServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class FlupFCGIServer(ServerAdapter):\n    def run(self, handler):  # pragma: no cover\n        import flup.server.fcgi\n        self.options.setdefault(\"bindAddress\", (self.host, self.port))\n        flup.server.fcgi.WSGIServer(handler, **self.options).run()\nclass WSGIRefServer(ServerAdapter):\n    def run(self, app):  # pragma: no cover\n        from wsgiref.simple_server import make_server\n        from wsgiref.simple_server import WSGIRequestHandler, WSGIServer\n        import socket",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "WSGIRefServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class WSGIRefServer(ServerAdapter):\n    def run(self, app):  # pragma: no cover\n        from wsgiref.simple_server import make_server\n        from wsgiref.simple_server import WSGIRequestHandler, WSGIServer\n        import socket\n        class FixedHandler(WSGIRequestHandler):\n            def address_string(self):  # Prevent reverse DNS lookups please.\n                return self.client_address[0]\n            def log_request(*args, **kw):\n                if not self.quiet:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "CherryPyServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class CherryPyServer(ServerAdapter):\n    def run(self, handler):  # pragma: no cover\n        depr(\n            0,\n            13,\n            \"The wsgi server part of cherrypy was split into a new \"\n            \"project called 'cheroot'.\",\n            \"Use the 'cheroot' server \" \"adapter instead of cherrypy.\",\n        )\n        from cherrypy import wsgiserver  # This will fail for CherryPy >= 9",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "CherootServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class CherootServer(ServerAdapter):\n    def run(self, handler):  # pragma: no cover\n        from cheroot import wsgi\n        from cheroot.ssl import builtin\n        self.options[\"bind_addr\"] = (self.host, self.port)\n        self.options[\"wsgi_app\"] = handler\n        certfile = self.options.pop(\"certfile\", None)\n        keyfile = self.options.pop(\"keyfile\", None)\n        chainfile = self.options.pop(\"chainfile\", None)\n        server = wsgi.Server(**self.options)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "WaitressServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class WaitressServer(ServerAdapter):\n    def run(self, handler):\n        from waitress import serve\n        serve(\n            handler, host=self.host, port=self.port, _quiet=self.quiet, **self.options\n        )\nclass PasteServer(ServerAdapter):\n    def run(self, handler):  # pragma: no cover\n        from paste import httpserver\n        from paste.translogger import TransLogger",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "PasteServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class PasteServer(ServerAdapter):\n    def run(self, handler):  # pragma: no cover\n        from paste import httpserver\n        from paste.translogger import TransLogger\n        handler = TransLogger(handler, setup_console_handler=(not self.quiet))\n        httpserver.serve(handler, host=self.host, port=str(self.port), **self.options)\nclass MeinheldServer(ServerAdapter):\n    def run(self, handler):\n        from meinheld import server\n        server.listen((self.host, self.port))",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "MeinheldServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class MeinheldServer(ServerAdapter):\n    def run(self, handler):\n        from meinheld import server\n        server.listen((self.host, self.port))\n        server.run(handler)\nclass FapwsServer(ServerAdapter):\n    \"\"\"Extremely fast webserver using libev. See https://github.com/william-os4y/fapws3\"\"\"\n    def run(self, handler):  # pragma: no cover\n        depr(0, 13, \"fapws3 is not maintained and support will be dropped.\")\n        import fapws._evwsgi as evwsgi",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "FapwsServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class FapwsServer(ServerAdapter):\n    \"\"\"Extremely fast webserver using libev. See https://github.com/william-os4y/fapws3\"\"\"\n    def run(self, handler):  # pragma: no cover\n        depr(0, 13, \"fapws3 is not maintained and support will be dropped.\")\n        import fapws._evwsgi as evwsgi\n        from fapws import base, config\n        port = self.port\n        if float(config.SERVER_IDENT[-2:]) > 0.4:\n            # fapws3 silently changed its API in 0.5\n            port = str(port)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "TornadoServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class TornadoServer(ServerAdapter):\n    \"\"\"The super hyped asynchronous server by facebook. Untested.\"\"\"\n    def run(self, handler):  # pragma: no cover\n        import tornado.wsgi, tornado.httpserver, tornado.ioloop\n        container = tornado.wsgi.WSGIContainer(handler)\n        server = tornado.httpserver.HTTPServer(container)\n        server.listen(port=self.port, address=self.host)\n        tornado.ioloop.IOLoop.instance().start()\nclass AppEngineServer(ServerAdapter):\n    \"\"\"Adapter for Google App Engine.\"\"\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "AppEngineServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class AppEngineServer(ServerAdapter):\n    \"\"\"Adapter for Google App Engine.\"\"\"\n    quiet = True\n    def run(self, handler):\n        depr(\n            0,\n            13,\n            \"AppEngineServer no longer required\",\n            \"Configure your application directly in your app.yaml\",\n        )",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "TwistedServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class TwistedServer(ServerAdapter):\n    \"\"\"Untested.\"\"\"\n    def run(self, handler):\n        from twisted.web import server, wsgi\n        from twisted.python.threadpool import ThreadPool\n        from twisted.internet import reactor\n        thread_pool = ThreadPool()\n        thread_pool.start()\n        reactor.addSystemEventTrigger(\"after\", \"shutdown\", thread_pool.stop)\n        factory = server.Site(wsgi.WSGIResource(reactor, thread_pool, handler))",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "DieselServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class DieselServer(ServerAdapter):\n    \"\"\"Untested.\"\"\"\n    def run(self, handler):\n        depr(0, 13, \"Diesel is not tested or supported and will be removed.\")\n        from diesel.protocols.wsgi import WSGIApplication\n        app = WSGIApplication(handler, port=self.port)\n        app.run()\nclass GeventServer(ServerAdapter):\n    \"\"\"Untested. Options:\n    * See gevent.wsgi.WSGIServer() documentation for more options.",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "GeventServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class GeventServer(ServerAdapter):\n    \"\"\"Untested. Options:\n    * See gevent.wsgi.WSGIServer() documentation for more options.\n    \"\"\"\n    def run(self, handler):\n        from gevent import pywsgi, local\n        if not isinstance(threading.local(), local.local):\n            msg = \"Bottle requires gevent.monkey.patch_all() (before import)\"\n            raise RuntimeError(msg)\n        if self.quiet:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "GunicornServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class GunicornServer(ServerAdapter):\n    \"\"\"Untested. See http://gunicorn.org/configure.html for options.\"\"\"\n    def run(self, handler):\n        from gunicorn.app.base import BaseApplication\n        if self.host.startswith(\"unix:\"):\n            config = {\"bind\": self.host}\n        else:\n            config = {\"bind\": \"%s:%d\" % (self.host, self.port)}\n        config.update(self.options)\n        class GunicornApplication(BaseApplication):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "EventletServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class EventletServer(ServerAdapter):\n    \"\"\"Untested. Options:\n    * `backlog` adjust the eventlet backlog parameter which is the maximum\n      number of queued connections. Should be at least 1; the maximum\n      value is system-dependent.\n    * `family`: (default is 2) socket family, optional. See socket\n      documentation for available families.\n    \"\"\"\n    def run(self, handler):\n        from eventlet import wsgi, listen, patcher",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "BjoernServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class BjoernServer(ServerAdapter):\n    \"\"\"Fast server written in C: https://github.com/jonashaag/bjoern\"\"\"\n    def run(self, handler):\n        from bjoern import run\n        run(handler, self.host, self.port, reuse_port=True)\nclass AsyncioServerAdapter(ServerAdapter):\n    \"\"\"Extend ServerAdapter for adding custom event loop\"\"\"\n    def get_event_loop(self):\n        pass\nclass AiohttpServer(AsyncioServerAdapter):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncioServerAdapter",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class AsyncioServerAdapter(ServerAdapter):\n    \"\"\"Extend ServerAdapter for adding custom event loop\"\"\"\n    def get_event_loop(self):\n        pass\nclass AiohttpServer(AsyncioServerAdapter):\n    \"\"\"Asynchronous HTTP client/server framework for asyncio\n    https://pypi.python.org/pypi/aiohttp/\n    https://pypi.org/project/aiohttp-wsgi/\n    \"\"\"\n    def get_event_loop(self):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "AiohttpServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class AiohttpServer(AsyncioServerAdapter):\n    \"\"\"Asynchronous HTTP client/server framework for asyncio\n    https://pypi.python.org/pypi/aiohttp/\n    https://pypi.org/project/aiohttp-wsgi/\n    \"\"\"\n    def get_event_loop(self):\n        import asyncio\n        return asyncio.new_event_loop()\n    def run(self, handler):\n        import asyncio",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "AiohttpUVLoopServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class AiohttpUVLoopServer(AiohttpServer):\n    \"\"\"uvloop\n    https://github.com/MagicStack/uvloop\n    \"\"\"\n    def get_event_loop(self):\n        import uvloop\n        return uvloop.new_event_loop()\nclass AutoServer(ServerAdapter):\n    \"\"\"Untested.\"\"\"\n    adapters = [",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "AutoServer",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class AutoServer(ServerAdapter):\n    \"\"\"Untested.\"\"\"\n    adapters = [\n        WaitressServer,\n        PasteServer,\n        TwistedServer,\n        CherryPyServer,\n        CherootServer,\n        WSGIRefServer,\n    ]",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "FileCheckerThread",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class FileCheckerThread(threading.Thread):\n    \"\"\"Interrupt main-thread as soon as a changed module file is detected,\n    the lockfile gets deleted or gets too old.\"\"\"\n    def __init__(self, lockfile, interval):\n        threading.Thread.__init__(self)\n        self.daemon = True\n        self.lockfile, self.interval = lockfile, interval\n        #: Is one of 'reload', 'error' or 'exit'\n        self.status = None\n    def run(self):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class TemplateError(BottleException):\n    pass\nclass BaseTemplate(object):\n    \"\"\"Base class and minimal API for template adapters\"\"\"\n    extensions = [\"tpl\", \"html\", \"thtml\", \"stpl\"]\n    settings = {}  # used in prepare()\n    defaults = {}  # used in render()\n    def __init__(\n        self, source=None, name=None, lookup=None, encoding=\"utf8\", **settings\n    ):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "BaseTemplate",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class BaseTemplate(object):\n    \"\"\"Base class and minimal API for template adapters\"\"\"\n    extensions = [\"tpl\", \"html\", \"thtml\", \"stpl\"]\n    settings = {}  # used in prepare()\n    defaults = {}  # used in render()\n    def __init__(\n        self, source=None, name=None, lookup=None, encoding=\"utf8\", **settings\n    ):\n        \"\"\"Create a new template.\n        If the source parameter (str or buffer) is missing, the name argument",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "MakoTemplate",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class MakoTemplate(BaseTemplate):\n    def prepare(self, **options):\n        from mako.template import Template\n        from mako.lookup import TemplateLookup\n        options.update({\"input_encoding\": self.encoding})\n        options.setdefault(\"format_exceptions\", bool(DEBUG))\n        lookup = TemplateLookup(directories=self.lookup, **options)\n        if self.source:\n            self.tpl = Template(self.source, lookup=lookup, **options)\n        else:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "CheetahTemplate",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class CheetahTemplate(BaseTemplate):\n    def prepare(self, **options):\n        from Cheetah.Template import Template\n        self.context = threading.local()\n        self.context.vars = {}\n        options[\"searchList\"] = [self.context.vars]\n        if self.source:\n            self.tpl = Template(source=self.source, **options)\n        else:\n            self.tpl = Template(file=self.filename, **options)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "Jinja2Template",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class Jinja2Template(BaseTemplate):\n    def prepare(self, filters=None, tests=None, globals={}, **kwargs):\n        from jinja2 import Environment, FunctionLoader\n        self.env = Environment(loader=FunctionLoader(self.loader), **kwargs)\n        if filters:\n            self.env.filters.update(filters)\n        if tests:\n            self.env.tests.update(tests)\n        if globals:\n            self.env.globals.update(globals)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleTemplate",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class SimpleTemplate(BaseTemplate):\n    def prepare(self, escape_func=html_escape, noescape=False, syntax=None, **ka):\n        self.cache = {}\n        enc = self.encoding\n        self._str = lambda x: touni(x, enc)\n        self._escape = lambda x: escape_func(touni(x, enc))\n        self.syntax = syntax\n        if noescape:\n            self._str, self._escape = self._escape, self._str\n    @cached_property",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "StplSyntaxError",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class StplSyntaxError(TemplateError):\n    pass\nclass StplParser(object):\n    \"\"\"Parser for stpl templates.\"\"\"\n    _re_cache = {}  #: Cache for compiled re patterns\n    # This huge pile of voodoo magic splits python code into 8 different tokens.\n    # We use the verbose (?x) regex mode to make this more manageable\n    _re_tok = r\"\"\"(\n        [urbURB]*\n        (?:  ''(?!')",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "StplParser",
+        "kind": 6,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "class StplParser(object):\n    \"\"\"Parser for stpl templates.\"\"\"\n    _re_cache = {}  #: Cache for compiled re patterns\n    # This huge pile of voodoo magic splits python code into 8 different tokens.\n    # We use the verbose (?x) regex mode to make this more manageable\n    _re_tok = r\"\"\"(\n        [urbURB]*\n        (?:  ''(?!')\n            |\"\"(?!\")\n            |'{6}",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "tob",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def tob(s, enc=\"utf8\"):\n    if isinstance(s, unicode):\n        return s.encode(enc)\n    return b\"\" if s is None else bytes(s)\ndef touni(s, enc=\"utf8\", err=\"strict\"):\n    if isinstance(s, bytes):\n        return s.decode(enc, err)\n    return unicode(\"\" if s is None else s)\ntonat = touni if py3k else tob\ndef _stderr(*args):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "touni",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def touni(s, enc=\"utf8\", err=\"strict\"):\n    if isinstance(s, bytes):\n        return s.decode(enc, err)\n    return unicode(\"\" if s is None else s)\ntonat = touni if py3k else tob\ndef _stderr(*args):\n    try:\n        print(*args, file=sys.stderr)\n    except (IOError, AttributeError):\n        pass  # Some environments do not allow printing (mod_wsgi)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "update_wrapper",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def update_wrapper(wrapper, wrapped, *a, **ka):\n    try:\n        functools.update_wrapper(wrapper, wrapped, *a, **ka)\n    except AttributeError:\n        pass\n# These helpers are used at module level and need to be defined first.\n# And yes, I know PEP-8, but sometimes a lower-case classname makes more sense.\ndef depr(major, minor, cause, fix):\n    text = (\n        \"Warning: Use of deprecated feature or API. (Deprecated in Bottle-%d.%d)\\n\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "depr",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def depr(major, minor, cause, fix):\n    text = (\n        \"Warning: Use of deprecated feature or API. (Deprecated in Bottle-%d.%d)\\n\"\n        \"Cause: %s\\n\"\n        \"Fix: %s\\n\" % (major, minor, cause, fix)\n    )\n    if DEBUG == \"strict\":\n        raise DeprecationWarning(text)\n    warnings.warn(text, DeprecationWarning, stacklevel=3)\n    return DeprecationWarning(text)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "makelist",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def makelist(data):  # This is just too handy\n    if isinstance(data, (tuple, list, set, dict)):\n        return list(data)\n    elif data:\n        return [data]\n    else:\n        return []\nclass DictProperty(object):\n    \"\"\"Property that maps to a key in a local dict-like attribute.\"\"\"\n    def __init__(self, attr, key=None, read_only=False):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def abort(code=500, text=\"Unknown Error.\"):\n    \"\"\"Aborts execution and causes a HTTP error.\"\"\"\n    raise HTTPError(code, text)\ndef redirect(url, code=None):\n    \"\"\"Aborts execution and causes a 303 or 302 redirect, depending on\n    the HTTP protocol version.\"\"\"\n    if not code:\n        code = 303 if request.get(\"SERVER_PROTOCOL\") == \"HTTP/1.1\" else 302\n    res = response.copy(cls=HTTPResponse)\n    res.status = code",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def redirect(url, code=None):\n    \"\"\"Aborts execution and causes a 303 or 302 redirect, depending on\n    the HTTP protocol version.\"\"\"\n    if not code:\n        code = 303 if request.get(\"SERVER_PROTOCOL\") == \"HTTP/1.1\" else 302\n    res = response.copy(cls=HTTPResponse)\n    res.status = code\n    res.body = \"\"\n    res.set_header(\"Location\", urljoin(request.url, url))\n    raise res",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "static_file",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def static_file(\n    filename,\n    root,\n    mimetype=True,\n    download=False,\n    charset=\"UTF-8\",\n    etag=None,\n    headers=None,\n):\n    \"\"\"Open a file in a safe way and return an instance of :exc:`HTTPResponse`",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "debug",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def debug(mode=True):\n    \"\"\"Change the debug level.\n    There is only one debug level supported at the moment.\"\"\"\n    global DEBUG\n    if mode:\n        warnings.simplefilter(\"default\")\n    DEBUG = bool(mode)\ndef http_date(value):\n    if isinstance(value, basestring):\n        return value",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "http_date",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def http_date(value):\n    if isinstance(value, basestring):\n        return value\n    if isinstance(value, datetime):\n        # aware datetime.datetime is converted to UTC time\n        # naive datetime.datetime is treated as UTC time\n        value = value.utctimetuple()\n    elif isinstance(value, datedate):\n        # datetime.date is naive, and is treated as UTC time\n        value = value.timetuple()",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "parse_date",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def parse_date(ims):\n    \"\"\"Parse rfc1123, rfc850 and asctime timestamps and return UTC epoch.\"\"\"\n    try:\n        ts = email.utils.parsedate_tz(ims)\n        return calendar.timegm(ts[:8] + (0,)) - (ts[9] or 0)\n    except (TypeError, ValueError, IndexError, OverflowError):\n        return None\ndef parse_auth(header):\n    \"\"\"Parse rfc2617 HTTP authentication header string (basic) and return (user,pass) tuple or None\"\"\"\n    try:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "parse_auth",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def parse_auth(header):\n    \"\"\"Parse rfc2617 HTTP authentication header string (basic) and return (user,pass) tuple or None\"\"\"\n    try:\n        method, data = header.split(None, 1)\n        if method.lower() == \"basic\":\n            user, pwd = touni(base64.b64decode(tob(data))).split(\":\", 1)\n            return user, pwd\n    except (KeyError, ValueError):\n        return None\ndef parse_range_header(header, maxlen=0):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "parse_range_header",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def parse_range_header(header, maxlen=0):\n    \"\"\"Yield (start, end) ranges parsed from a HTTP Range header. Skip\n    unsatisfiable ranges. The end index is non-inclusive.\"\"\"\n    if not header or header[:6] != \"bytes=\":\n        return\n    ranges = [r.split(\"-\", 1) for r in header[6:].split(\",\") if \"-\" in r]\n    for start, end in ranges:\n        try:\n            if not start:  # bytes=-100    -> last 100 bytes\n                start, end = max(0, maxlen - int(end)), maxlen",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "cookie_encode",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def cookie_encode(data, key, digestmod=None):\n    \"\"\"Encode and sign a pickle-able object. Return a (byte) string\"\"\"\n    depr(\n        0, 13, \"cookie_encode() will be removed soon.\", \"Do not use this API directly.\"\n    )\n    digestmod = digestmod or hashlib.sha256\n    msg = base64.b64encode(pickle.dumps(data, -1))\n    sig = base64.b64encode(hmac.new(tob(key), msg, digestmod=digestmod).digest())\n    return tob(\"!\") + sig + tob(\"?\") + msg\ndef cookie_decode(data, key, digestmod=None):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "cookie_decode",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def cookie_decode(data, key, digestmod=None):\n    \"\"\"Verify and decode an encoded string. Return an object or None.\"\"\"\n    depr(\n        0, 13, \"cookie_decode() will be removed soon.\", \"Do not use this API directly.\"\n    )\n    data = tob(data)\n    if cookie_is_encoded(data):\n        sig, msg = data.split(tob(\"?\"), 1)\n        digestmod = digestmod or hashlib.sha256\n        hashed = hmac.new(tob(key), msg, digestmod=digestmod).digest()",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "cookie_is_encoded",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def cookie_is_encoded(data):\n    \"\"\"Return True if the argument looks like a encoded cookie.\"\"\"\n    depr(\n        0,\n        13,\n        \"cookie_is_encoded() will be removed soon.\",\n        \"Do not use this API directly.\",\n    )\n    return bool(data.startswith(tob(\"!\")) and tob(\"?\") in data)\ndef html_escape(string):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "html_escape",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def html_escape(string):\n    \"\"\"Escape HTML special characters ``&<>`` and quotes ``'\"``.\"\"\"\n    return (\n        string.replace(\"&\", \"&amp;\")\n        .replace(\"<\", \"&lt;\")\n        .replace(\">\", \"&gt;\")\n        .replace('\"', \"&quot;\")\n        .replace(\"'\", \"&#039;\")\n    )\ndef html_quote(string):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "html_quote",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def html_quote(string):\n    \"\"\"Escape and quote a string to be used as an HTTP attribute.\"\"\"\n    return '\"%s\"' % html_escape(string).replace(\"\\n\", \"&#10;\").replace(\n        \"\\r\", \"&#13;\"\n    ).replace(\"\\t\", \"&#9;\")\ndef yieldroutes(func):\n    \"\"\"Return a generator for routes that match the signature (name, args)\n    of the func parameter. This may yield more than one route if the function\n    takes optional keyword arguments. The output is best described by example::\n        a()         -> '/a'",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "yieldroutes",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def yieldroutes(func):\n    \"\"\"Return a generator for routes that match the signature (name, args)\n    of the func parameter. This may yield more than one route if the function\n    takes optional keyword arguments. The output is best described by example::\n        a()         -> '/a'\n        b(x, y)     -> '/b/<x>/<y>'\n        c(x, y=5)   -> '/c/<x>' and '/c/<x>/<y>'\n        d(x=5, y=6) -> '/d' and '/d/<x>' and '/d/<x>/<y>'\n    \"\"\"\n    path = \"/\" + func.__name__.replace(\"__\", \"/\").lstrip(\"/\")",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "path_shift",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def path_shift(script_name, path_info, shift=1):\n    \"\"\"Shift path fragments from PATH_INFO to SCRIPT_NAME and vice versa.\n    :return: The modified paths.\n    :param script_name: The SCRIPT_NAME path.\n    :param script_name: The PATH_INFO path.\n    :param shift: The number of path fragments to shift. May be negative to\n      change the shift direction. (default: 1)\n    \"\"\"\n    if shift == 0:\n        return script_name, path_info",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "auth_basic",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def auth_basic(check, realm=\"private\", text=\"Access denied\"):\n    \"\"\"Callback decorator to require HTTP auth (basic).\n    TODO: Add route(check_auth=...) parameter.\"\"\"\n    def decorator(func):\n        @functools.wraps(func)\n        def wrapper(*a, **ka):\n            user, password = request.auth or (None, None)\n            if user is None or not check(user, password):\n                err = HTTPError(401, text)\n                err.add_header(\"WWW-Authenticate\", 'Basic realm=\"%s\"' % realm)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "make_default_app_wrapper",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def make_default_app_wrapper(name):\n    \"\"\"Return a callable that relays calls to the current default app.\"\"\"\n    @functools.wraps(getattr(Bottle, name))\n    def wrapper(*a, **ka):\n        return getattr(app(), name)(*a, **ka)\n    return wrapper\nroute = make_default_app_wrapper(\"route\")\nget = make_default_app_wrapper(\"get\")\npost = make_default_app_wrapper(\"post\")\nput = make_default_app_wrapper(\"put\")",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "load",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def load(target, **namespace):\n    \"\"\"Import a module or fetch an object from a module.\n    * ``package.module`` returns `module` as a module object.\n    * ``pack.mod:name`` returns the module variable `name` from `pack.mod`.\n    * ``pack.mod:func()`` calls `pack.mod.func()` and returns the result.\n    The last form accepts not only function calls, but any type of\n    expression. Keyword arguments passed to this function are available as\n    local variables. Example: ``import_string('re:compile(x)', x='[a-z]')``\n    \"\"\"\n    module, target = target.split(\":\", 1) if \":\" in target else (target, None)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "load_app",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def load_app(target):\n    \"\"\"Load a bottle application from a module and make sure that the import\n    does not affect the current default application, but returns a separate\n    application object. See :func:`load` for the target parameter.\"\"\"\n    global NORUN\n    NORUN, nr_old = True, NORUN\n    tmp = default_app.push()  # Create a new \"default application\"\n    try:\n        rv = load(target)  # Import the target module\n        return rv if callable(rv) else tmp",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "run",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def run(\n    app=None,\n    server=\"wsgiref\",\n    host=\"127.0.0.1\",\n    port=8080,\n    interval=1,\n    reloader=False,\n    quiet=False,\n    plugins=None,\n    debug=None,",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "template",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def template(*args, **kwargs):\n    \"\"\"\n    Get a rendered template as a string iterator.\n    You can use a name, a filename or a template string as first parameter.\n    Template rendering arguments can be passed as dictionaries\n    or directly (as keyword arguments).\n    \"\"\"\n    tpl = args[0] if args else None\n    for dictarg in args[1:]:\n        kwargs.update(dictarg)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "view",
+        "kind": 2,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "def view(tpl_name, **defaults):\n    \"\"\"Decorator: renders a template for a handler.\n    The handler can control its behavior like that:\n      - return a dict of template vars to fill out the template\n      - return something other than a dict and the view decorator will not\n        process the template, but return the handler result as is.\n        This includes returning a HTTPResponse(dict) to get,\n        for instance, JSON with autojson or other castfilters.\n    \"\"\"\n    def decorator(func):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "__author__",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "__author__ = \"Marcel Hellkamp\"\n__version__ = \"0.13-dev\"\n__license__ = \"MIT\"\n###############################################################################\n# Command-line interface ######################################################\n###############################################################################\n# INFO: Some server adapters need to monkey-patch std-lib modules before they\n# are imported. This is why some of the command-line handling is done here, but\n# the actual call to _main() is at the end of the file.\ndef _cli_parse(args):  # pragma: no coverage",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "__version__",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "__version__ = \"0.13-dev\"\n__license__ = \"MIT\"\n###############################################################################\n# Command-line interface ######################################################\n###############################################################################\n# INFO: Some server adapters need to monkey-patch std-lib modules before they\n# are imported. This is why some of the command-line handling is done here, but\n# the actual call to _main() is at the end of the file.\ndef _cli_parse(args):  # pragma: no coverage\n    from argparse import ArgumentParser",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "__license__",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "__license__ = \"MIT\"\n###############################################################################\n# Command-line interface ######################################################\n###############################################################################\n# INFO: Some server adapters need to monkey-patch std-lib modules before they\n# are imported. This is why some of the command-line handling is done here, but\n# the actual call to _main() is at the end of the file.\ndef _cli_parse(args):  # pragma: no coverage\n    from argparse import ArgumentParser\n    parser = ArgumentParser(prog=args[0], usage=\"%(prog)s [options] package.module:app\")",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "py",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "py = sys.version_info\npy3k = py.major > 2\n# Lots of stdlib and builtin differences.\nif py3k:\n    import http.client as httplib\n    import _thread as thread\n    from urllib.parse import urljoin, SplitResult as UrlSplitResult\n    from urllib.parse import urlencode, quote as urlquote, unquote as urlunquote\n    urlunquote = functools.partial(urlunquote, encoding=\"latin1\")\n    from http.cookies import SimpleCookie, Morsel, CookieError",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "py3k",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "py3k = py.major > 2\n# Lots of stdlib and builtin differences.\nif py3k:\n    import http.client as httplib\n    import _thread as thread\n    from urllib.parse import urljoin, SplitResult as UrlSplitResult\n    from urllib.parse import urlencode, quote as urlquote, unquote as urlunquote\n    urlunquote = functools.partial(urlunquote, encoding=\"latin1\")\n    from http.cookies import SimpleCookie, Morsel, CookieError\n    from collections.abc import MutableMapping as DictMixin",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "tonat",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "tonat = touni if py3k else tob\ndef _stderr(*args):\n    try:\n        print(*args, file=sys.stderr)\n    except (IOError, AttributeError):\n        pass  # Some environments do not allow printing (mod_wsgi)\n# A bug in functools causes it to break if the wrapper is an instance method\ndef update_wrapper(wrapper, wrapped, *a, **ka):\n    try:\n        functools.update_wrapper(wrapper, wrapped, *a, **ka)",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "Request = BaseRequest\nResponse = BaseResponse\nclass HTTPResponse(Response, BottleException):\n    def __init__(self, body=\"\", status=None, headers=None, **more_headers):\n        super(HTTPResponse, self).__init__(body, status, headers, **more_headers)\n    def apply(self, other):\n        other._status_code = self._status_code\n        other._status_line = self._status_line\n        other._headers = self._headers\n        other._cookies = self._cookies",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "Response = BaseResponse\nclass HTTPResponse(Response, BottleException):\n    def __init__(self, body=\"\", status=None, headers=None, **more_headers):\n        super(HTTPResponse, self).__init__(body, status, headers, **more_headers)\n    def apply(self, other):\n        other._status_code = self._status_code\n        other._status_line = self._status_line\n        other._headers = self._headers\n        other._cookies = self._cookies\n        other.body = self.body",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "_UNSET",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "_UNSET = object()\nclass ConfigDict(dict):\n    \"\"\"A dict-like configuration storage with additional support for\n    namespaces, validators, meta-data, overlays and more.\n    This dict-like class is heavily optimized for read access. All read-only\n    methods as well as item access should be as fast as the built-in dict.\n    \"\"\"\n    __slots__ = (\n        \"_meta\",\n        \"_change_listener\",",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "_hsplit",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "_hsplit = re.compile('(?:(?:\"((?:[^\"\\\\\\\\]|\\\\\\\\.)*)\")|([^;,=]+))([;,=]?)').findall\ndef _parse_http_header(h):\n    \"\"\"Parses a typical multi-valued and parametrised HTTP header (e.g. Accept headers) and returns a list of values\n        and parameters. For non-standard or broken input, this implementation may return partial results.\n    :param h: A header string (e.g. ``text/html,text/plain;q=0.9,*/*;q=0.8``)\n    :return: List of (value, params) tuples. The second element is a (possibly empty) dict.\n    \"\"\"\n    values = []\n    if '\"' not in h:  # INFO: Fast path without regexp (~2x faster)\n        for value in h.split(\",\"):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "route",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "route = make_default_app_wrapper(\"route\")\nget = make_default_app_wrapper(\"get\")\npost = make_default_app_wrapper(\"post\")\nput = make_default_app_wrapper(\"put\")\ndelete = make_default_app_wrapper(\"delete\")\npatch = make_default_app_wrapper(\"patch\")\nerror = make_default_app_wrapper(\"error\")\nmount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "get",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "get = make_default_app_wrapper(\"get\")\npost = make_default_app_wrapper(\"post\")\nput = make_default_app_wrapper(\"put\")\ndelete = make_default_app_wrapper(\"delete\")\npatch = make_default_app_wrapper(\"patch\")\nerror = make_default_app_wrapper(\"error\")\nmount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "post",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "post = make_default_app_wrapper(\"post\")\nput = make_default_app_wrapper(\"put\")\ndelete = make_default_app_wrapper(\"delete\")\npatch = make_default_app_wrapper(\"patch\")\nerror = make_default_app_wrapper(\"error\")\nmount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "put",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "put = make_default_app_wrapper(\"put\")\ndelete = make_default_app_wrapper(\"delete\")\npatch = make_default_app_wrapper(\"patch\")\nerror = make_default_app_wrapper(\"error\")\nmount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "delete",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "delete = make_default_app_wrapper(\"delete\")\npatch = make_default_app_wrapper(\"patch\")\nerror = make_default_app_wrapper(\"error\")\nmount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "patch = make_default_app_wrapper(\"patch\")\nerror = make_default_app_wrapper(\"error\")\nmount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################\n###############################################################################",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "error",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "error = make_default_app_wrapper(\"error\")\nmount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################\n###############################################################################\n# Before you edit or add a server adapter, please read:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "mount",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "mount = make_default_app_wrapper(\"mount\")\nhook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################\n###############################################################################\n# Before you edit or add a server adapter, please read:\n# - https://github.com/bottlepy/bottle/pull/647#issuecomment-60152870",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "hook",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "hook = make_default_app_wrapper(\"hook\")\ninstall = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################\n###############################################################################\n# Before you edit or add a server adapter, please read:\n# - https://github.com/bottlepy/bottle/pull/647#issuecomment-60152870\n# - https://github.com/bottlepy/bottle/pull/865#issuecomment-242795341",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "install",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "install = make_default_app_wrapper(\"install\")\nuninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################\n###############################################################################\n# Before you edit or add a server adapter, please read:\n# - https://github.com/bottlepy/bottle/pull/647#issuecomment-60152870\n# - https://github.com/bottlepy/bottle/pull/865#issuecomment-242795341\nclass ServerAdapter(object):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "uninstall",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "uninstall = make_default_app_wrapper(\"uninstall\")\nurl = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################\n###############################################################################\n# Before you edit or add a server adapter, please read:\n# - https://github.com/bottlepy/bottle/pull/647#issuecomment-60152870\n# - https://github.com/bottlepy/bottle/pull/865#issuecomment-242795341\nclass ServerAdapter(object):\n    quiet = False",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "url",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "url = make_default_app_wrapper(\"get_url\")\n###############################################################################\n# Server Adapter ###############################################################\n###############################################################################\n# Before you edit or add a server adapter, please read:\n# - https://github.com/bottlepy/bottle/pull/647#issuecomment-60152870\n# - https://github.com/bottlepy/bottle/pull/865#issuecomment-242795341\nclass ServerAdapter(object):\n    quiet = False\n    def __init__(self, host=\"127.0.0.1\", port=8080, **options):",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "server_names",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "server_names = {\n    \"cgi\": CGIServer,\n    \"flup\": FlupFCGIServer,\n    \"wsgiref\": WSGIRefServer,\n    \"waitress\": WaitressServer,\n    \"cherrypy\": CherryPyServer,\n    \"cheroot\": CherootServer,\n    \"paste\": PasteServer,\n    \"fapws3\": FapwsServer,\n    \"tornado\": TornadoServer,",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "_debug",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "_debug = debug\ndef run(\n    app=None,\n    server=\"wsgiref\",\n    host=\"127.0.0.1\",\n    port=8080,\n    interval=1,\n    reloader=False,\n    quiet=False,\n    plugins=None,",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "mako_template",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "mako_template = functools.partial(template, template_adapter=MakoTemplate)\ncheetah_template = functools.partial(template, template_adapter=CheetahTemplate)\njinja2_template = functools.partial(template, template_adapter=Jinja2Template)\ndef view(tpl_name, **defaults):\n    \"\"\"Decorator: renders a template for a handler.\n    The handler can control its behavior like that:\n      - return a dict of template vars to fill out the template\n      - return something other than a dict and the view decorator will not\n        process the template, but return the handler result as is.\n        This includes returning a HTTPResponse(dict) to get,",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "cheetah_template",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "cheetah_template = functools.partial(template, template_adapter=CheetahTemplate)\njinja2_template = functools.partial(template, template_adapter=Jinja2Template)\ndef view(tpl_name, **defaults):\n    \"\"\"Decorator: renders a template for a handler.\n    The handler can control its behavior like that:\n      - return a dict of template vars to fill out the template\n      - return something other than a dict and the view decorator will not\n        process the template, but return the handler result as is.\n        This includes returning a HTTPResponse(dict) to get,\n        for instance, JSON with autojson or other castfilters.",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "jinja2_template",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "jinja2_template = functools.partial(template, template_adapter=Jinja2Template)\ndef view(tpl_name, **defaults):\n    \"\"\"Decorator: renders a template for a handler.\n    The handler can control its behavior like that:\n      - return a dict of template vars to fill out the template\n      - return something other than a dict and the view decorator will not\n        process the template, but return the handler result as is.\n        This includes returning a HTTPResponse(dict) to get,\n        for instance, JSON with autojson or other castfilters.\n    \"\"\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "mako_view",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "mako_view = functools.partial(view, template_adapter=MakoTemplate)\ncheetah_view = functools.partial(view, template_adapter=CheetahTemplate)\njinja2_view = functools.partial(view, template_adapter=Jinja2Template)\n###############################################################################\n# Constants and Globals ########################################################\n###############################################################################\nTEMPLATE_PATH = [\"./\", \"./views/\"]\nTEMPLATES = {}\nDEBUG = False\nNORUN = False  # If set, run() does nothing. Used by load_app()",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "cheetah_view",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "cheetah_view = functools.partial(view, template_adapter=CheetahTemplate)\njinja2_view = functools.partial(view, template_adapter=Jinja2Template)\n###############################################################################\n# Constants and Globals ########################################################\n###############################################################################\nTEMPLATE_PATH = [\"./\", \"./views/\"]\nTEMPLATES = {}\nDEBUG = False\nNORUN = False  # If set, run() does nothing. Used by load_app()\n#: A dict to map HTTP status codes (e.g. 404) to phrases (e.g. 'Not Found')",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "jinja2_view",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "jinja2_view = functools.partial(view, template_adapter=Jinja2Template)\n###############################################################################\n# Constants and Globals ########################################################\n###############################################################################\nTEMPLATE_PATH = [\"./\", \"./views/\"]\nTEMPLATES = {}\nDEBUG = False\nNORUN = False  # If set, run() does nothing. Used by load_app()\n#: A dict to map HTTP status codes (e.g. 404) to phrases (e.g. 'Not Found')\nHTTP_CODES = httplib.responses.copy()",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATE_PATH",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "TEMPLATE_PATH = [\"./\", \"./views/\"]\nTEMPLATES = {}\nDEBUG = False\nNORUN = False  # If set, run() does nothing. Used by load_app()\n#: A dict to map HTTP status codes (e.g. 404) to phrases (e.g. 'Not Found')\nHTTP_CODES = httplib.responses.copy()\nHTTP_CODES[418] = \"I'm a teapot\"  # RFC 2324\nHTTP_CODES[428] = \"Precondition Required\"\nHTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "TEMPLATES = {}\nDEBUG = False\nNORUN = False  # If set, run() does nothing. Used by load_app()\n#: A dict to map HTTP status codes (e.g. 404) to phrases (e.g. 'Not Found')\nHTTP_CODES = httplib.responses.copy()\nHTTP_CODES[418] = \"I'm a teapot\"  # RFC 2324\nHTTP_CODES[428] = \"Precondition Required\"\nHTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "DEBUG = False\nNORUN = False  # If set, run() does nothing. Used by load_app()\n#: A dict to map HTTP status codes (e.g. 404) to phrases (e.g. 'Not Found')\nHTTP_CODES = httplib.responses.copy()\nHTTP_CODES[418] = \"I'm a teapot\"  # RFC 2324\nHTTP_CODES[428] = \"Precondition Required\"\nHTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "NORUN",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "NORUN = False  # If set, run() does nothing. Used by load_app()\n#: A dict to map HTTP status codes (e.g. 404) to phrases (e.g. 'Not Found')\nHTTP_CODES = httplib.responses.copy()\nHTTP_CODES[418] = \"I'm a teapot\"  # RFC 2324\nHTTP_CODES[428] = \"Precondition Required\"\nHTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_CODES",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "HTTP_CODES = httplib.responses.copy()\nHTTP_CODES[418] = \"I'm a teapot\"  # RFC 2324\nHTTP_CODES[428] = \"Precondition Required\"\nHTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_CODES[418]",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "HTTP_CODES[418] = \"I'm a teapot\"  # RFC 2324\nHTTP_CODES[428] = \"Precondition Required\"\nHTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (\n    \"\"\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_CODES[428]",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "HTTP_CODES[428] = \"Precondition Required\"\nHTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (\n    \"\"\"\n%%try:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_CODES[429]",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "HTTP_CODES[429] = \"Too Many Requests\"\nHTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (\n    \"\"\"\n%%try:\n    %%from %s import DEBUG, request",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_CODES[431]",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "HTTP_CODES[431] = \"Request Header Fields Too Large\"\nHTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (\n    \"\"\"\n%%try:\n    %%from %s import DEBUG, request\n    <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_CODES[451]",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "HTTP_CODES[451] = \"Unavailable For Legal Reasons\"  # RFC 7725\nHTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (\n    \"\"\"\n%%try:\n    %%from %s import DEBUG, request\n    <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n    <html>",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "HTTP_CODES[511]",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "HTTP_CODES[511] = \"Network Authentication Required\"\n_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (\n    \"\"\"\n%%try:\n    %%from %s import DEBUG, request\n    <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n    <html>\n        <head>",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "_HTTP_STATUS_LINES",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "_HTTP_STATUS_LINES = dict((k, \"%d %s\" % (k, v)) for (k, v) in HTTP_CODES.items())\n#: The default template used for error pages. Override with @error()\nERROR_PAGE_TEMPLATE = (\n    \"\"\"\n%%try:\n    %%from %s import DEBUG, request\n    <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n    <html>\n        <head>\n            <title>Error: {{e.status}}</title>",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "ERROR_PAGE_TEMPLATE",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "ERROR_PAGE_TEMPLATE = (\n    \"\"\"\n%%try:\n    %%from %s import DEBUG, request\n    <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n    <html>\n        <head>\n            <title>Error: {{e.status}}</title>\n            <style type=\"text/css\">\n              html {background-color: #eee; font-family: sans-serif;}",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "request = LocalRequest()\n#: A thread-safe instance of :class:`LocalResponse`. It is used to change the\n#: HTTP response for the *current* request.\nresponse = LocalResponse()\n#: A thread-safe namespace. Not used by Bottle.\nlocal = threading.local()\n# Initialize app stack (create first empty Bottle app now deferred until needed)\n# BC: 0.6.4 and needed for run()\napps = app = default_app = AppStack()\n#: A virtual package that redirects import statements.",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "response = LocalResponse()\n#: A thread-safe namespace. Not used by Bottle.\nlocal = threading.local()\n# Initialize app stack (create first empty Bottle app now deferred until needed)\n# BC: 0.6.4 and needed for run()\napps = app = default_app = AppStack()\n#: A virtual package that redirects import statements.\n#: Example: ``import bottle.ext.sqlite`` actually imports `bottle_sqlite`.\next = _ImportRedirect(\n    \"bottle.ext\" if __name__ == \"__main__\" else __name__ + \".ext\", \"bottle_%s\"",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "local",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "local = threading.local()\n# Initialize app stack (create first empty Bottle app now deferred until needed)\n# BC: 0.6.4 and needed for run()\napps = app = default_app = AppStack()\n#: A virtual package that redirects import statements.\n#: Example: ``import bottle.ext.sqlite`` actually imports `bottle_sqlite`.\next = _ImportRedirect(\n    \"bottle.ext\" if __name__ == \"__main__\" else __name__ + \".ext\", \"bottle_%s\"\n).module\ndef _main(argv):  # pragma: no coverage",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "apps",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "apps = app = default_app = AppStack()\n#: A virtual package that redirects import statements.\n#: Example: ``import bottle.ext.sqlite`` actually imports `bottle_sqlite`.\next = _ImportRedirect(\n    \"bottle.ext\" if __name__ == \"__main__\" else __name__ + \".ext\", \"bottle_%s\"\n).module\ndef _main(argv):  # pragma: no coverage\n    args, parser = _cli_parse(argv)\n    def _cli_error(cli_msg):\n        parser.print_help()",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "ext",
+        "kind": 5,
+        "importPath": "bottle",
+        "description": "bottle",
+        "peekOfCode": "ext = _ImportRedirect(\n    \"bottle.ext\" if __name__ == \"__main__\" else __name__ + \".ext\", \"bottle_%s\"\n).module\ndef _main(argv):  # pragma: no coverage\n    args, parser = _cli_parse(argv)\n    def _cli_error(cli_msg):\n        parser.print_help()\n        _stderr(\"\\nError: %s\\n\" % cli_msg)\n        sys.exit(1)\n    if args.version:",
+        "detail": "bottle",
+        "documentation": {}
+    },
+    {
+        "label": "is_authenticated_user",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username\n    :param password: password\n    :returns: True if valid username and password else False\n    \"\"\"\n    if user == USERNAME and password == PASSWORD:\n        return True\n    return False\n@get(\"/dashboard\")",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "dashboard",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def dashboard():\n    \"\"\"Static dashboard page.\n    :returns: static file\n    \"\"\"\n    return static_file(\"dashboard.html\", root=\"static\")\ndef insert_log(\n    level: str = \"UNDEFINED\", scope: str = \"scopeless\", message: str = \"blank\"\n):\n    \"\"\"Inserts a log in the database.\n    :param level: level or severity of the log",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "insert_log",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def insert_log(\n    level: str = \"UNDEFINED\", scope: str = \"scopeless\", message: str = \"blank\"\n):\n    \"\"\"Inserts a log in the database.\n    :param level: level or severity of the log\n    :param scope: log scope or application name\n    :param message: log message\n    \"\"\"\n    stmt = \"\"\"INSERT INTO {0}\n    (level, scope, message, timestamp)",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "count_total_logs",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def count_total_logs():\n    \"\"\"Counts total rows.\n    :returns: rows count\n    \"\"\"\n    cur = conn.cursor()\n    stmt = \"SELECT count(id) as total FROM {0}\".format(LOGS_TABLE_NAME)\n    cur.execute(stmt)\n    result = cur.fetchone()\n    return result[0]\ndef paginate_logs(offset: int, elements_per_page: int):",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "paginate_logs",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def paginate_logs(offset: int, elements_per_page: int):\n    \"\"\"Paginates logs.\n    :param offset: pagination offset\n    :param selements_per_page: elements per page\n    :returns: fetched result\n    \"\"\"\n    cur = conn.cursor()\n    base_stmt = (\n        \"SELECT id, level, scope, timestamp, message FROM {0} ORDER BY id DESC\".format(\n            LOGS_TABLE_NAME",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "get_logs",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def get_logs():\n    \"\"\"Get paginated logs and return json result.\n    :returns: paginated result in json format\n    \"\"\"\n    offset = int(request.query[\"start\"])\n    length = int(request.query[\"length\"])\n    logs = paginate_logs(offset, length)\n    return json.dumps(logs)\n@post(\"/api/logs\")\ndef create_log():",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "create_log",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def create_log():\n    \"\"\"Create log function.\n    :returns: request_body\n    \"\"\"\n    api_key = request.get_header(\"Authorization\")\n    scope = API_KEYS.get(api_key, None)\n    if not scope:\n        return HTTPResponse(status=401, body=\"Unauthorized\")\n    request_body = request.json\n    level = request_body.get(\"level\", \"Undefined\")",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "health_check",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def health_check(\n    scope: str,\n    endpoint: str,\n    frequency: int,\n    timeout: int,\n):\n    \"\"\"Health check loop function.\n    :param scope: Scope string\n    :param endpoint: Endpoint returning 200\n    :param frequency: Frequency of the health check in seconds",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "ping",
+        "kind": 2,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "def ping():\n    \"\"\"Health check endpoint.\n    :returns: HTTPResponse\n    \"\"\"\n    return HTTPResponse(status=200, body=\"pong\")\nif __name__ == \"__main__\":\n    # Loop on all applications in config file and spawn\n    # a health check greenlet that pings the health check\n    # endpoint every frequency in seconds\n    for application in APPLICATIONS:",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "logger = logging.getLogger(\"Central\")\nconn = sqlite3.connect(\"db.sqlite\")\nconfig = yaml.safe_load(open(\"config.yaml\"))\nAPPLICATIONS = config[\"applications\"]\nAPI_KEYS = {}\nfor application in APPLICATIONS:\n    API_KEYS[application[\"apiKey\"]] = application[\"scope\"]\nUSERNAME = config[\"credentials\"][\"username\"]\nPASSWORD = config[\"credentials\"][\"password\"]\nDISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "conn",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "conn = sqlite3.connect(\"db.sqlite\")\nconfig = yaml.safe_load(open(\"config.yaml\"))\nAPPLICATIONS = config[\"applications\"]\nAPI_KEYS = {}\nfor application in APPLICATIONS:\n    API_KEYS[application[\"apiKey\"]] = application[\"scope\"]\nUSERNAME = config[\"credentials\"][\"username\"]\nPASSWORD = config[\"credentials\"][\"password\"]\nDISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]\nDISCORD_HOOK = config[\"discord\"][\"discordHook\"]",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "config = yaml.safe_load(open(\"config.yaml\"))\nAPPLICATIONS = config[\"applications\"]\nAPI_KEYS = {}\nfor application in APPLICATIONS:\n    API_KEYS[application[\"apiKey\"]] = application[\"scope\"]\nUSERNAME = config[\"credentials\"][\"username\"]\nPASSWORD = config[\"credentials\"][\"password\"]\nDISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]\nDISCORD_HOOK = config[\"discord\"][\"discordHook\"]\nLOGS_TABLE_NAME = \"Logs\"",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "APPLICATIONS",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "APPLICATIONS = config[\"applications\"]\nAPI_KEYS = {}\nfor application in APPLICATIONS:\n    API_KEYS[application[\"apiKey\"]] = application[\"scope\"]\nUSERNAME = config[\"credentials\"][\"username\"]\nPASSWORD = config[\"credentials\"][\"password\"]\nDISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]\nDISCORD_HOOK = config[\"discord\"][\"discordHook\"]\nLOGS_TABLE_NAME = \"Logs\"\nTIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "API_KEYS",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "API_KEYS = {}\nfor application in APPLICATIONS:\n    API_KEYS[application[\"apiKey\"]] = application[\"scope\"]\nUSERNAME = config[\"credentials\"][\"username\"]\nPASSWORD = config[\"credentials\"][\"password\"]\nDISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]\nDISCORD_HOOK = config[\"discord\"][\"discordHook\"]\nLOGS_TABLE_NAME = \"Logs\"\nTIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"\nDATETIME_FORNAT = \"%Y-%m-%d\"",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "USERNAME",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "USERNAME = config[\"credentials\"][\"username\"]\nPASSWORD = config[\"credentials\"][\"password\"]\nDISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]\nDISCORD_HOOK = config[\"discord\"][\"discordHook\"]\nLOGS_TABLE_NAME = \"Logs\"\nTIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"\nDATETIME_FORNAT = \"%Y-%m-%d\"\ndef is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "PASSWORD",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "PASSWORD = config[\"credentials\"][\"password\"]\nDISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]\nDISCORD_HOOK = config[\"discord\"][\"discordHook\"]\nLOGS_TABLE_NAME = \"Logs\"\nTIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"\nDATETIME_FORNAT = \"%Y-%m-%d\"\ndef is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username\n    :param password: password",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "DISCORD_ENABLED",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "DISCORD_ENABLED = config[\"discord\"][\"discordEnabled\"]\nDISCORD_HOOK = config[\"discord\"][\"discordHook\"]\nLOGS_TABLE_NAME = \"Logs\"\nTIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"\nDATETIME_FORNAT = \"%Y-%m-%d\"\ndef is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username\n    :param password: password\n    :returns: True if valid username and password else False",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "DISCORD_HOOK",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "DISCORD_HOOK = config[\"discord\"][\"discordHook\"]\nLOGS_TABLE_NAME = \"Logs\"\nTIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"\nDATETIME_FORNAT = \"%Y-%m-%d\"\ndef is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username\n    :param password: password\n    :returns: True if valid username and password else False\n    \"\"\"",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "LOGS_TABLE_NAME",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "LOGS_TABLE_NAME = \"Logs\"\nTIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"\nDATETIME_FORNAT = \"%Y-%m-%d\"\ndef is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username\n    :param password: password\n    :returns: True if valid username and password else False\n    \"\"\"\n    if user == USERNAME and password == PASSWORD:",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "TIMESTAMP_FORMAT",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "TIMESTAMP_FORMAT = \"%Y-%m-%d %H:%M:%S\"\nDATETIME_FORNAT = \"%Y-%m-%d\"\ndef is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username\n    :param password: password\n    :returns: True if valid username and password else False\n    \"\"\"\n    if user == USERNAME and password == PASSWORD:\n        return True",
+        "detail": "central",
+        "documentation": {}
+    },
+    {
+        "label": "DATETIME_FORNAT",
+        "kind": 5,
+        "importPath": "central",
+        "description": "central",
+        "peekOfCode": "DATETIME_FORNAT = \"%Y-%m-%d\"\ndef is_authenticated_user(user, password):\n    \"\"\"Basic http authentication check function.\n    :param user: username\n    :param password: password\n    :returns: True if valid username and password else False\n    \"\"\"\n    if user == USERNAME and password == PASSWORD:\n        return True\n    return False",
+        "detail": "central",
+        "documentation": {}
+    }
+]

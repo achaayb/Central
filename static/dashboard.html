@@ -1,0 +1,1389 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Central dashboard</title>
+</head>
+<body>
+
+    <script>
+        const JSTableDefaultConfig = {
+            perPage: 5,
+            perPageSelect: [5, 10, 15, 20, 25],
+
+            sortable: true,
+            searchable: true,
+
+            // Pagination
+            nextPrev: true,
+            firstLast: false,
+            prevText: "&lsaquo;",
+            nextText: "&rsaquo;",
+            firstText: "&laquo;",
+            lastText: "&raquo;",
+            ellipsisText: "&hellip;",
+            truncatePager: true,
+            pagerDelta: 2,
+
+            classes: {
+                top: "dt-top",
+                info: "dt-info",
+                input: "dt-input",
+                table: "dt-table",
+                bottom: "dt-bottom",
+                search: "dt-search",
+                sorter: "dt-sorter",
+                wrapper: "dt-wrapper",
+                dropdown: "dt-dropdown",
+                ellipsis: "dt-ellipsis",
+                selector: "dt-selector",
+                container: "dt-container",
+                pagination: "dt-pagination",
+                loading: "dt-loading",
+                message: "dt-message"
+            },
+
+            // Customise the display text
+            labels: {
+                placeholder: "Search...",
+                perPage: "{select} entries per page",
+                noRows: "No entries found",
+                info: "Showing {start} to {end} of {rows} entries",
+                loading: "Loading...",
+                infoFiltered: "Showing {start} to {end} of {rows} entries (filtered from {rowsTotal} entries)"
+            },
+
+            // Customise the layout
+            layout: {
+                top: "{select}{search}",
+                bottom: "{info}{pager}"
+            },
+
+            // server side
+            serverSide: false,
+            // total count of elements
+            deferLoading: null,
+            // url for queries
+            ajax: null,
+            // additional params
+            ajaxParams: {},
+            // query params names
+            queryParams: {
+                page: 'page',
+                search: 'search',
+                sortColumn: 'sortColumn',
+                sortDirection: 'sortDirection',
+                perPage: 'perPage'
+            },
+            // append query params on events
+            addQueryParams: true,
+
+            rowAttributesCreator: null,
+
+            searchDelay: null,
+
+            // http method request, default is: GET
+            method: 'GET'
+        };
+
+        class JSTable {
+
+            constructor(element, config = {}) {
+
+                let DOMElement = element;
+                if (typeof element === "string") {
+                    DOMElement = document.querySelector(element);
+                }
+                if (DOMElement === null) {
+                    return;
+                }
+
+                this.config = this._merge(JSTableDefaultConfig, config);
+                this.table = new JSTableElement(DOMElement);
+
+                // reset values
+                this.currentPage = 1;
+                this.columnRenderers = [];
+                this.columnsNotSearchable = [];
+                this.searchQuery = null;
+                this.sortColumn = null;
+                this.sortDirection = "asc";
+                this.isSearching = false;
+                this.dataCount = null;
+                this.filteredDataCount = null;
+                this.searchTimeout = null;
+
+
+                // init pager
+                this.pager = new JSTablePager(this);
+
+                // build wrapper and layout
+                this._build();
+                this._buildColumns();
+
+                // update table content
+                this.update(this.config.deferLoading === null);
+
+                // bind events
+                this._bindEvents();
+
+                this._emit("init");
+
+                this._parseQueryParams();
+
+            }
+
+            _build() {
+                var that = this;
+                let options = this.config;
+
+                this.wrapper = document.createElement("div");
+                this.wrapper.className = options.classes.wrapper;
+
+
+                var inner = [
+                    "<div class='", options.classes.top, "'>", options.layout.top, "</div>",
+                    "<div class='", options.classes.container, "'>",
+                    "<div class='", options.classes.loading, " hidden'>", options.labels.loading, "</div>",
+                    "</div>",
+                    "<div class='", options.classes.bottom, "'>", options.layout.bottom, "</div>"
+                ].join("");
+
+                // Info placement
+                inner = inner.replace(
+                    "{info}",
+                    "<div class='" + options.classes.info + "'></div>"
+                );
+
+                // Per Page Select
+                if (options.perPageSelect) {
+                    var wrap = [
+                        "<div class='", options.classes.dropdown, "'>",
+                        "<label>", options.labels.perPage, "</label>",
+                        "</div>"
+                    ].join("");
+
+                    // Create the select
+                    var select = document.createElement("select");
+                    select.className = options.classes.selector;
+
+                    // Create the options
+                    options.perPageSelect.forEach(function (val) {
+                        var selected = val === options.perPage;
+                        var option = new Option(val, val, selected, selected);
+                        select.add(option);
+                    });
+
+                    // Custom label
+                    wrap = wrap.replace("{select}", select.outerHTML);
+
+                    // Selector placement
+                    inner = inner.replace(/\{select\}/g, wrap);
+                } else {
+                    inner = inner.replace(/\{select\}/g, "");
+                }
+
+                // Searchable
+                if (options.searchable) {
+                    var form = [
+                        "<div class='", options.classes.search, "'>",
+                        "<input class='", options.classes.input, "' placeholder='", options.labels.placeholder, "' type='text'>",
+                        "</div>"
+                    ].join("");
+
+                    // Search input placement
+                    inner = inner.replace(/\{search\}/g, form);
+                } else {
+                    inner = inner.replace(/\{search\}/g, "");
+                }
+
+                // Add table class
+
+                this.table.element.classList.add(options.classes.table);
+
+                // Pager
+
+                inner = inner.replace(
+                    "{pager}",
+                    "<div class='" + options.classes.pagination + "'></div>"
+                );
+
+                this.wrapper.innerHTML = inner;
+
+                this.table.element.parentNode.replaceChild(this.wrapper, this.table.element);
+
+                let container = this.wrapper.querySelector("." + options.classes.container);
+                container.appendChild(this.table.element);
+
+                this._updatePagination();
+                this._updateInfo();
+
+            }
+
+            async update(reloadData = true) {
+                var that = this;
+
+                // no overlap please
+                if (this.currentPage > this.pager.getPages()) {
+                    this.currentPage = this.pager.getPages();
+                }
+
+                let loading = that.wrapper.querySelector(" ." + that.config.classes.loading);
+                loading.classList.remove("hidden");
+
+                // Create Header
+                this.table.header.getCells().forEach(function (tableHeaderCell, columnIndex) {
+
+                    let th = that.table.head.rows[0].cells[columnIndex];
+                    th.innerHTML = tableHeaderCell.getInnerHTML();
+                    if (tableHeaderCell.classes.length > 0) {
+                        th.className = tableHeaderCell.classes.join(" ");
+                    }
+                    for (let attr in tableHeaderCell.attributes) {
+                        th.setAttribute(attr, tableHeaderCell.attributes[attr]);
+                    }
+                    th.setAttribute("data-sortable", tableHeaderCell.isSortable);
+                });
+
+                if (reloadData) {
+
+                    // Change Table Body
+                    return this.getPageData(this.currentPage).then(function (data) {
+
+                        that.table.element.classList.remove("hidden");
+                        that.table.body.innerHTML = "";
+
+                        data.forEach(function (row) {
+                            that.table.body.appendChild(row.getFormatted(that.columnRenderers, that.config.rowAttributesCreator));
+                        });
+
+                        loading.classList.add("hidden");
+
+                    }).then(function () {
+
+                        // No Data
+                        if (that.getDataCount() <= 0) {
+                            that.wrapper.classList.remove("search-results");
+                            that.setMessage(that.config.labels.noRows);
+                        }
+
+                        that._emit("update");
+
+                    }).then(function () {
+                        that._updatePagination();
+                        that._updateInfo();
+                    });
+                }
+                // when there is a defer loading (server side) the initial data needs to be formatted
+                else {
+                    that.table.element.classList.remove("hidden");
+                    that.table.body.innerHTML = "";
+
+                    // No Data
+                    if (this.getDataCount() <= 0) {
+                        that.wrapper.classList.remove("search-results");
+                        that.setMessage(that.config.labels.noRows);
+                    }
+
+                    this._getData().forEach(function (row) {
+                        that.table.body.appendChild(row.getFormatted(that.columnRenderers, that.config.rowAttributesCreator));
+                    });
+                    loading.classList.add("hidden");
+
+                }
+            }
+
+            _updatePagination() {
+                // change Pagination
+                let pagination = this.wrapper.querySelector(" ." + this.config.classes.pagination);
+                pagination.innerHTML = "";
+                pagination.appendChild(this.pager.render(this.currentPage));
+
+
+            }
+
+            _updateInfo() {
+                // change info
+                let info = this.wrapper.querySelector(" ." + this.config.classes.info);
+
+                let infoString = this.isSearching ? this.config.labels.infoFiltered : this.config.labels.info;
+                if (info && infoString.length) {
+                    var string = infoString
+                        .replace("{start}", this.getDataCount() > 0 ? this._getPageStartIndex() + 1 : 0)
+                        .replace("{end}", this._getPageEndIndex() + 1)
+                        .replace("{page}", this.currentPage)
+                        .replace("{pages}", this.pager.getPages())
+                        .replace("{rows}", this.getDataCount())
+                        .replace("{rowsTotal}", this.getDataCountTotal());
+
+                    info.innerHTML = string;
+                }
+            }
+
+            _getPageStartIndex() {
+                return (this.currentPage - 1) * this.config.perPage;
+            }
+            _getPageEndIndex() {
+                let end = this.currentPage * this.config.perPage - 1;
+                return end > this.getDataCount() - 1 ? this.getDataCount() - 1 : end;
+            }
+
+            _getData() {
+                this._emit("getData", this.table.dataRows);
+                return this.table.dataRows.filter(function (row) {
+                    return row.visible;
+                });
+            }
+
+            _fetchData() {
+                var that = this;
+
+                let params = {
+                    "searchQuery": this.searchQuery,
+                    "sortColumn": this.sortColumn,
+                    "sortDirection": this.sortDirection,
+                    "start": this._getPageStartIndex(),
+                    "length": this.config.perPage,
+                    "datatable": 1
+                };
+
+                params = Object.assign({}, this.config.ajaxParams, params);
+
+                let query = this.config.ajax + '?' + this._queryParams(params);
+
+                return fetch(query, {
+                    method: this.config.method,
+                    credentials: "same-origin",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function (response) {
+                    return response.json();
+                }).then(function (json) {
+                    that._emit("fetchData", json);
+                    that.dataCount = json.recordsTotal;
+                    that.filteredDataCount = json.recordsFiltered;
+                    return json.data;
+                }).then(function (data) {
+                    let rows = [];
+                    // Create Table
+                    data.forEach(function (dataRow) {
+                        rows.push(JSTableRow.createFromData(dataRow));
+                    });
+                    return rows;
+                }).catch(function (error) {
+                    console.error(error);
+                });
+            }
+
+            _queryParams(params) {
+                return Object.keys(params)
+                    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+                    .join('&');
+            }
+
+            getDataCount() {
+                if (this.isSearching) {
+                    return this.getDataCountFiltered();
+                }
+                return this.getDataCountTotal();
+            }
+
+            getDataCountFiltered() {
+                if (this.config.serverSide) {
+                    return this.filteredDataCount;
+                }
+                return this._getData().length;
+            }
+
+            getDataCountTotal() {
+                if (this.config.serverSide) {
+                    return this.config.deferLoading !== null ? this.config.deferLoading : this.dataCount;
+                }
+                return this.table.dataRows.length;
+            }
+
+            getPageData() {
+                // return the ajax data with a promise
+                if (this.config.serverSide) {
+                    return this._fetchData();
+                }
+
+
+                // filter the table data and return a promise
+                let start_idx = this._getPageStartIndex();
+                var end_idx = this._getPageEndIndex();
+                return Promise.resolve(this._getData()).then(function (data) {
+                    return data.filter(function (row, idx) {
+                        return idx >= start_idx && idx <= end_idx;
+                    });
+                });
+            }
+
+            async search(query) {
+                var that = this;
+
+                // do nothing if the query has not changed since last search
+                if (this.searchQuery === query.toLowerCase()) {
+                    return false;
+                }
+
+                this.searchQuery = query.toLowerCase();
+
+                // do not perform another search before enough time has passed since the last
+                if (this.config.searchDelay) {
+                    if (this.searchTimeout) {
+                        return false;
+                    } else {
+                        // trigger search again after the given delay
+                        this.searchTimeout = setTimeout(
+                            function () {
+                                that.searchTimeout = null;
+                            },
+                            this.config.searchDelay
+                        );
+                    }
+                }
+
+                // reset parameters
+                this.currentPage = 1;
+                this.isSearching = true;
+
+                // reset search
+                if (!this.searchQuery.length) {
+                    // reset data to all table data
+                    this.table.dataRows.forEach(function (row) {
+                        row.visible = true;
+                    });
+                    this.isSearching = false;
+                    that.wrapper.classList.remove("search-results");
+                    that.update();
+                    return false;
+                }
+
+                // search in all the data
+                if (!this.config.serverSide) {
+                    this.table.dataRows.forEach(function (row) {
+                        row.visible = false;
+
+                        var match = that.searchQuery.split(" ").reduce(function (bool, word) {
+                            var hasMatch = false;
+
+                            let cells = row.getCells();
+
+                            // only use searchable cells
+                            cells = cells.filter(function (cell, idx) {
+                                if (that.columnsNotSearchable.indexOf(idx) < 0) {
+                                    return true;
+                                }
+                            });
+
+                            hasMatch = cells.some(function (cell, idx) {
+                                if (cell.getTextContent().toLowerCase().indexOf(word) >= 0) {
+                                    return true;
+                                }
+                            });
+
+                            return bool && hasMatch;
+                        }, true);
+
+                        if (match) {
+                            row.visible = true;
+                        }
+                    });
+                }
+                this.wrapper.classList.add("search-results");
+
+                return this.update().then(function () {
+                    that._emit("search", query);
+                });
+
+            }
+
+            sort(column, direction, initial = false) {
+                var that = this;
+                this.sortColumn = column || 0;
+                this.sortDirection = direction;
+
+                if (this.sortColumn < 0 || this.sortColumn > this.table.getColumnCount() - 1) {
+                    return false;
+                }
+
+                var node = this.table.header.getCell(this.sortColumn);
+                var rows = this.table.dataRows;
+
+
+                //Remove class from previus columns
+                let tableHeaderCells = this.table.header.getCells();
+                tableHeaderCells.forEach(function (tableHeaderCell) {
+                    tableHeaderCell.removeClass("asc");
+                    tableHeaderCell.removeClass("desc");
+                });
+
+                node.addClass(this.sortDirection);
+
+                if (!this.config.serverSide) {
+                    rows = rows.sort(function (a, b) {
+                        var ca = a.getCellTextContent(that.sortColumn).toLowerCase();
+                        var cb = b.getCellTextContent(that.sortColumn).toLowerCase();
+
+                        // replace $, coma, whitespace and %
+                        ca = ca.replace(/(\$|\,|\s|%)/g, "");
+                        cb = cb.replace(/(\$|\,|\s|%)/g, "");
+
+                        ca = !isNaN(ca) && ca !== '' ? parseFloat(ca) : ca;
+                        cb = !isNaN(cb) && cb !== '' ? parseFloat(cb) : cb;
+
+                        // Sort empty cells or cells with different content types (numeric/not numeric) to top
+                        if ((ca === '' && cb !== '') || (!isNaN(ca) && isNaN(cb))) {
+                            return that.sortDirection === "asc" ? 1 : -1;
+                        }
+                        if ((ca !== '' && cb === '') || (isNaN(ca) && !isNaN(cb))) {
+                            return that.sortDirection === "asc" ? -1 : 1;
+                        }
+
+                        // Otherwise
+                        if (that.sortDirection === "asc") {
+                            return ca === cb ? 0 : ca > cb ? 1 : -1;
+                        }
+                        return ca === cb ? 0 : ca < cb ? 1 : -1;
+
+                    });
+
+                    // replace dataRows with sorted rows
+                    this.table.dataRows = rows;
+
+                }
+
+                // initial sorting with serverSide on is not needed
+                if (!this.config.serverSide || !initial) {
+                    this.update();
+                }
+
+                this._emit("sort", this.sortColumn, this.sortDirection);
+
+            }
+
+            async paginate(new_page) {
+                var that = this;
+
+                this.currentPage = new_page;
+                return this.update().then(function () {
+                    that._emit("paginate", that.currentPage, new_page);
+                });
+            }
+
+            _setQueryParam(key, value) {
+            if (!this.config.addQueryParams) return;
+
+            const url = new URL(window.location.href);
+            url.searchParams.set(this.config.queryParams[key], value);
+            window.history.replaceState(null, null, url);
+            }
+
+            _bindEvents() {
+                var that = this;
+
+
+                this.wrapper.addEventListener("click", function (event) {
+                    var node = event.target;
+
+                    if (node.hasAttribute("data-page")) {
+                        event.preventDefault();
+                        let new_page = parseInt(node.getAttribute("data-page"), 10);
+                        that.paginate(new_page);
+
+                        that._setQueryParam('page', new_page)
+                    }
+
+                    if (node.nodeName === "TH" && node.hasAttribute("data-sortable")) {
+
+                        if (node.getAttribute("data-sortable") === "false")
+                            return false;
+
+                        event.preventDefault();
+                        let sortDirection = node.classList.contains("asc") ? "desc" : "asc";
+                        that.sort(node.cellIndex, sortDirection);
+
+                        that._setQueryParam('sortColumn', node.cellIndex)
+                        that._setQueryParam('sortDirection', sortDirection)
+                    }
+                });
+
+                if (this.config.perPageSelect) {
+                    this.wrapper.addEventListener("change", function (e) {
+                        var node = e.target;
+                        if (node.nodeName === "SELECT" && node.classList.contains(that.config.classes.selector)) {
+                            e.preventDefault();
+                            let value = parseInt(node.value, 10);
+                            that._emit("perPageChange", that.config.perPage, value);
+                            that.config.perPage = value;
+                            that.update();
+
+                            that._setQueryParam('perPage', value)
+                        }
+                    });
+                }
+
+                if (this.config.searchable) {
+                    this.wrapper.addEventListener("keyup", function (e) {
+                        if (e.target.nodeName === "INPUT" && e.target.classList.contains(that.config.classes.input)) {
+                            e.preventDefault();
+                            that.search(e.target.value);
+
+                            that._setQueryParam('search', e.target.value)
+                        }
+                    });
+                }
+            }
+
+            on(event, callback) {
+                this.events = this.events || {};
+                this.events[event] = this.events[event] || [];
+                this.events[event].push(callback);
+            }
+
+            off(event, callback) {
+                this.events = this.events || {};
+                if (event in this.events === false)
+                    return;
+                this.events[event].splice(this.events[event].indexOf(callback), 1);
+            }
+
+            _emit(event) {
+                this.events = this.events || {};
+                if (event in this.events === false)
+                    return;
+                for (var i = 0; i < this.events[event].length; i++) {
+                    this.events[event][i].apply(this, Array.prototype.slice.call(arguments, 1));
+                }
+            }
+
+            setMessage(message) {
+                var colspan = this.table.getColumnCount();
+
+                var node = document.createElement("tr");
+                node.innerHTML = '<td class="' + this.config.classes.message + '" colspan="' +
+                    colspan +
+                    '">' +
+                    message +
+                    "</td>";
+
+                this.table.body.innerHTML = "";
+
+                this.table.body.appendChild(node);
+            }
+
+            _buildColumns() {
+                var that = this;
+
+                /**
+                * change sortable attribute of columns:
+                * - a global definition of the sortable attribute of the table can be overwritten 
+                *   by a "data-sortable" attribute on the table header or 
+                *   by a custom column definitions attribute "sortable"
+                * - a custom column definitions attribute "sortable" can be overwritten
+                *   by a "data-sortable" attribute on the table header
+                * - a "data-sortable" attribute on the table header cannot be overwritten    
+                * 
+                * the initial sort column/direction can be defined on the table header (data-sort) or
+                * on the custom column definitions (attribute "sort") with possible values "asc"/"desc"
+                * - a custom column definitions attribute is overwritten by a "data-sort" attribute
+                * - since sorting is only supported for 1 column at the same time the last defined column is used 
+                */
+
+                let initialSortColumn = null;
+                let initialSortDirection = null;
+
+                /**
+                * Process custom column definitions
+                */
+                if (this.config.columns) {
+
+                    this.config.columns.forEach(function (columnsDefinition) {
+
+                        // convert single column selection to array
+                        if (!isNaN(columnsDefinition.select)) {
+                            columnsDefinition.select = [columnsDefinition.select];
+                        }
+
+                        // Add the data attributes to the th elements
+                        columnsDefinition.select.forEach(function (column) {
+                            var tableHeaderCell = that.table.header.getCell(column);
+
+                            // Skip missing
+                            if (tableHeaderCell === undefined) {
+                                return;
+                            }
+
+                            /**
+                            * Rendering
+                            */
+                            if (columnsDefinition.hasOwnProperty("render") && typeof columnsDefinition.render === "function") {
+                                that.columnRenderers[column] = columnsDefinition.render;
+                            }
+
+                            /**
+                            * Sortable
+                            */
+                            if (columnsDefinition.hasOwnProperty("sortable")) {
+
+                                let sortable = false;
+                                if (tableHeaderCell.hasSortable) {
+                                    sortable = tableHeaderCell.isSortable;
+                                } else {
+                                    sortable = columnsDefinition.sortable;
+                                    tableHeaderCell.setSortable(sortable);
+                                }
+
+
+                                if (sortable) {
+
+                                    tableHeaderCell.addClass(that.config.classes.sorter);
+
+                                    // save sortable column/direction
+                                    // when there is one selected column in columns definition
+                                    // and this column should be sortable
+                                    if (columnsDefinition.hasOwnProperty("sort") && columnsDefinition.select.length === 1) {
+                                        initialSortColumn = columnsDefinition.select[0];
+                                        initialSortDirection = columnsDefinition.sort;
+                                    }
+                                }
+                            }
+
+                            /**
+                            * Searchable (not serverside)
+                            */
+                            if (columnsDefinition.hasOwnProperty("searchable")) {
+                                tableHeaderCell.addAttribute("data-searchable", columnsDefinition.searchable);
+
+                                if (columnsDefinition.searchable === false) {
+                                    that.columnsNotSearchable.push(column);
+                                }
+                            }
+
+                        });
+                    });
+                }
+
+                /**
+                * Process data-attributes 
+                */
+                this.table.header.getCells().forEach(function (tableHeaderCell, columnIndex) {
+
+                    if (tableHeaderCell.isSortable === null) {
+                        tableHeaderCell.setSortable(that.config.sortable);
+                    }
+
+                    if (tableHeaderCell.isSortable) {
+                        tableHeaderCell.addClass(that.config.classes.sorter);
+
+                        if (tableHeaderCell.hasSort) {
+                            initialSortColumn = columnIndex;
+                            initialSortDirection = tableHeaderCell.sortDirection;
+                        }
+                    }
+                });
+
+
+                // sort the table by the last column which is marked to be sorted
+                if (initialSortColumn !== null) {
+                    that.sort(initialSortColumn, initialSortDirection, true);
+                }
+
+            }
+
+            // deep merge two objects
+            _merge(current, update) {
+                var that = this;
+                Object.keys(current).forEach(function (key) {
+                    if (update.hasOwnProperty(key) && typeof update[key] === "object" && !(update[key] instanceof Array) && update[key] !== null) {
+                        that._merge(current[key], update[key]);
+                    } else if (!update.hasOwnProperty(key)) {
+                        update[key] = current[key];
+                    }
+                });
+                return update;
+            }
+
+            async _parseQueryParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+
+                let perPage = urlParams.get(this.config.queryParams.perPage);
+                if (perPage) {
+                perPage = parseInt(perPage)
+                this.config.perPage = perPage;
+                let selectors = this.wrapper.querySelectorAll('.' + this.config.classes.selector);
+                selectors.forEach(function (selector) {
+                    selector.querySelectorAll('option').forEach(opt => opt.removeAttribute('selected'))
+                    selector.value = perPage;
+                    selector.querySelector(`option[value='${perPage}']`).setAttribute('selected', '')
+                });
+                this.update()
+                }
+
+                // parse search param and populate search
+                let search = urlParams.get(this.config.queryParams.search);
+                if (search) {
+                    let searchfields = this.wrapper.querySelectorAll('.' + this.config.classes.input);
+                    searchfields.forEach(function (searchfield) {
+                        searchfield.value = search;
+                    });
+                    await this.search(search);
+                }
+
+                // parse page param and navigate to page
+                let page = urlParams.get(this.config.queryParams.page);
+                if (page) {
+                    await this.paginate(parseInt(page));
+                }
+
+                let sortColumn = urlParams.get(this.config.queryParams.sortColumn);
+                if (sortColumn) {
+                sortColumn = parseInt(sortColumn)
+                let sortDirection = urlParams.get(this.config.queryParams.sortDirection);
+                sortDirection = (sortDirection == undefined) ? "asc" : sortDirection;
+                this.sort(sortColumn, sortDirection);
+                }
+            }
+        }
+
+        class JSTableElement {
+
+            constructor(element) {
+                this.element = element;
+
+                this.body = this.element.tBodies[0];
+                this.head = this.element.tHead;
+
+                // we are modifying the data of the underlying element so first 
+                // make a copy for row extraction
+                //let table = this.element.cloneNode(true);
+
+                // Process table rows 
+                this.rows = Array.from(this.element.rows).map(function (row, rowID) {
+                    return new JSTableRow(row, row.parentNode.nodeName, rowID);
+                });
+
+                this.dataRows = this._getBodyRows();
+                this.header = this._getHeaderRow();
+
+            }
+
+            _getBodyRows() {
+                return this.rows.filter(function (row) {
+                    return !row.isHeader && !row.isFooter;
+                });
+            }
+
+            _getHeaderRow() {
+                return this.rows.find(function (row) {
+                    return row.isHeader;
+                });
+            }
+
+            getColumnCount() {
+                return this.header.getColumnCount();
+            }
+
+            getFooterRow() {
+                return this.rows.find(function (row) {
+                    return row.isFooter;
+                });
+            }
+
+        }
+
+        class JSTableRow {
+
+            constructor(element, parentName = "", rowID = null) {
+                // Process row cells 
+                this.cells = Array.from(element.cells).map(function (cell) {
+                    return new JSTableCell(cell);
+                });
+
+                this.d = this.cells.length;
+
+                //this.element = element;
+                this.isHeader = parentName === "THEAD";
+                this.isFooter = parentName === "TFOOT";
+                this.visible = true;
+                this.rowID = rowID;
+
+                var that = this;
+                // parse attributes
+                this.attributes = {};
+                [...element.attributes].forEach(function (attr) {
+                    that.attributes[attr.name] = attr.value;
+                });
+            }
+
+            getCells() {
+                return Array.from(this.cells);
+            }
+
+            getColumnCount() {
+                return this.cells.length;
+            }
+
+            getCell(cell) {
+                return this.cells[cell];
+            }
+
+            // for sorting
+            getCellTextContent(cell) {
+                return this.getCell(cell).getTextContent();
+            }
+
+            static createFromData(data) {
+                let tr = document.createElement("tr");
+
+                if(data.hasOwnProperty("data")){
+                    if(data.hasOwnProperty("attributes")){
+                        for (const attrName in data["attributes"]) {
+                            tr.setAttribute(attrName, data["attributes"][attrName])
+                        }
+                    }
+                    data = data["data"];
+                }
+
+                data.forEach(function (cellData) {
+                    let td = document.createElement("td");
+                    td.innerHTML = !!cellData && cellData.hasOwnProperty("data") ? cellData["data"]: cellData;
+
+                    if(!!cellData && cellData.hasOwnProperty("attributes")){
+                        for (const attrName in cellData["attributes"]) {
+                            td.setAttribute(attrName, cellData["attributes"][attrName])
+                        }
+                    }
+                    tr.appendChild(td);
+                });
+                return new JSTableRow(tr);
+            }
+
+            getFormatted(columnRenderers, rowAttributesCreator = null) {
+                let tr = document.createElement("tr");
+                var that = this;
+
+                for (let attr in this.attributes) {
+                    tr.setAttribute(attr, this.attributes[attr]);
+                }
+                
+                let rowAttributes = !!rowAttributesCreator ? rowAttributesCreator.call(this, this.getCells()): {};
+                for (const attrName in rowAttributes) {
+                    tr.setAttribute(attrName, rowAttributes[attrName])
+                }
+
+                this.getCells().forEach(function (cell, idx) {
+                    var td = document.createElement('td');
+                    td.innerHTML = cell.getInnerHTML();
+                    if (columnRenderers.hasOwnProperty(idx)) {
+                        td.innerHTML = columnRenderers[idx].call(that, cell.getElement(), idx);
+                    }
+                    if (cell.classes.length > 0) {
+                        td.className = cell.classes.join(" ");
+                    }
+                    for (let attr in cell.attributes) {
+                        td.setAttribute(attr, cell.attributes[attr]);
+                    }
+                    tr.appendChild(td);
+                });
+                return tr;
+
+            }
+
+            setCellClass(cell, className) {
+                this.cells[cell].addClass(className);
+            }
+        }
+
+        class JSTableCell {
+
+            constructor(element) {
+                this.textContent = element.textContent;
+                this.innerHTML = element.innerHTML;
+                this.className = "";
+                this.element = element;
+
+                this.hasSortable = element.hasAttribute("data-sortable");
+                this.isSortable = this.hasSortable ? element.getAttribute("data-sortable") === "true" : null;
+
+                this.hasSort = element.hasAttribute("data-sort");
+                this.sortDirection = element.getAttribute("data-sort");
+
+                this.classes = [];
+
+                var that = this;
+                // parse attributes
+                this.attributes = {};
+                [...element.attributes].forEach(function (attr) {
+                    that.attributes[attr.name] = attr.value;
+                });
+            }
+
+            getElement() {
+                return this.element;
+            }
+
+            // for sorting
+            getTextContent() {
+                return this.textContent;
+            }
+
+            // for rendering
+            getInnerHTML() {
+                return this.innerHTML;
+            }
+
+            setClass(className) {
+                this.className = className;
+            }
+
+            setSortable(value) {
+                this.isSortable = value;
+                //tableHeaderCell.setAttribute("data-sortable", sortable);
+            }
+
+            addClass(value) {
+                this.classes.push(value);
+            }
+
+            removeClass(value) {
+                if (this.classes.indexOf(value) >= 0) {
+                    this.classes.splice(this.classes.indexOf(value), 1);
+                }
+            }
+
+            addAttribute(key, value) {
+                this.attributes[key] = value;
+            }
+        }
+
+        class JSTablePager {
+
+            constructor(instance) {
+                this.instance = instance;
+            }
+
+            getPages() {
+                let pages = Math.ceil(this.instance.getDataCount() / this.instance.config.perPage);
+                return pages === 0 ? 1 : pages;
+            }
+
+            render() {
+                var options = this.instance.config;
+                let pages = this.getPages();
+
+                let ul = document.createElement("ul");
+                if (pages > 1) {
+
+                    let prev = this.instance.currentPage === 1 ? 1 : this.instance.currentPage - 1,
+                        next = this.instance.currentPage === pages ? pages : this.instance.currentPage + 1;
+
+                    // first button
+                    if (options.firstLast) {
+                        ul.appendChild(this.createItem("pager", 1, options.firstText));
+                    }
+
+                    // prev button
+                    if (options.nextPrev) {
+                        ul.appendChild(this.createItem("pager", prev, options.prevText));
+                    }
+
+                    var pager = this.truncate();
+                    // append the links
+                    pager.forEach(function (btn) {
+                        ul.appendChild(btn);
+                    });
+
+                    // next button
+                    if (options.nextPrev) {
+                        ul.appendChild(this.createItem("pager", next, options.nextText));
+                    }
+
+                    // first button
+                    if (options.firstLast) {
+                        ul.appendChild(this.createItem("pager", pages, options.lastText));
+                    }
+
+
+                }
+                return ul;
+
+            }
+
+            createItem(className, pageNum, content, ellipsis) {
+                let item = document.createElement("li");
+                item.className = className;
+                item.innerHTML = !ellipsis ? '<a href="#" data-page="' + pageNum + '">' + content + "</a>" : '<span>' + content + "</span>";
+                return item;
+            }
+
+            isValidPage(page) {
+                return page > 0 && page <= this.getPages();
+            }
+
+            truncate() {
+                var that = this,
+                    options = that.instance.config,
+                    delta = options.pagerDelta * 2,
+                    currentPage = that.instance.currentPage,
+                    left = currentPage - options.pagerDelta,
+                    right = currentPage + options.pagerDelta,
+                    totalPages = this.getPages(),
+                    range = [],
+                    pager = [],
+                    lastIndex;
+
+                if (!this.instance.config.truncatePager) {
+                    for (let i = 1; i <= this.getPages(); i++) {
+                        pager.push(this.createItem(i === currentPage ? "active" : "", i, i));
+                    }
+
+                } else {
+                    if (currentPage < 4 - options.pagerDelta + delta) {
+                        right = 3 + delta;
+                    } else if (currentPage > this.getPages() - (3 - options.pagerDelta + delta)) {
+                        left = this.getPages() - (2 + delta);
+                    }
+
+                    // Get the links that will be visible
+                    for (var i = 1; i <= totalPages; i++) {
+                        if (i === 1 || i === totalPages || (i >= left && i <= right)) {
+                            range.push(i);
+                        }
+                    }
+
+                    range.forEach(function (index) {
+                        if (lastIndex) {
+                            if (index - lastIndex == 2) {
+                                pager.push(that.createItem("", lastIndex + 1, lastIndex + 1));
+                            } else if (index - lastIndex != 1) {
+                                // Create ellipsis node
+                                pager.push(that.createItem(options.classes.ellipsis, 0, options.ellipsisText, true));
+                            }
+                        }
+
+                        pager.push(that.createItem(index == currentPage ? "active" : "", index, index));
+                        lastIndex = index;
+                    });
+                }
+
+                return pager;
+            }
+
+        }
+        window.JSTable = JSTable;
+    </script>
+    <style>
+        .dt-container{
+            position:relative;
+            display:block;
+            width:100%;
+            overflow-x:auto;
+            -webkit-overflow-scrolling:touch;
+            -ms-overflow-style:-ms-autohiding-scrollbar;
+            overflow-y:hidden
+        }
+        .dt-container .dt-message{
+            text-align:center
+        }
+        .dt-container .dt-loading{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:100%;
+            margin-left:-50%;
+            margin-top:-20px;
+            height:40px;
+            text-align:center;
+            background-color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(to right, rgba(255,255,255,0) 0, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0.9) 75%, rgba(255,255,255,0) 100%)
+        }
+        .dt-top,.dt-bottom{
+            padding:8px 10px;
+            display:flex;
+            justify-content:space-between
+        }
+        .dt-top .dt-selector,.dt-bottom .dt-selector{
+            padding:6px
+        }
+        .dt-top .dt-info,.dt-bottom .dt-info{
+            margin:7px 0
+        }
+        .dt-input{
+            padding:6px 12px
+        }
+        .dt-pagination ul{
+            margin:0;
+            padding-left:0
+        }
+        .dt-pagination ul li{
+            list-style:none;
+            float:left
+        }
+        .dt-pagination a,.dt-pagination span{
+            border:1px solid transparent;
+            float:left;
+            margin-left:2px;
+            padding:6px 12px;
+            position:relative;
+            text-decoration:none;
+            color:inherit
+        }
+        .dt-pagination a:hover{
+            background-color:#d9d9d9
+        }
+        .dt-pagination .active a,.dt-pagination .active a:focus,.dt-pagination .active a:hover{
+            background-color:#d9d9d9;
+            cursor:default
+        }
+        .dt-pagination .dt-ellipsis span{
+            cursor:not-allowed
+        }
+        .dt-pagination .disabled a,.dt-pagination .disabled a:focus,.dt-pagination .disabled a:hover{
+            cursor:not-allowed;
+            opacity:0.4
+        }
+        .dt-pagination .pager a{
+            font-weight:bold
+        }
+        .dt-table{
+            max-width:100%;
+            width:100%;
+            border-spacing:0
+        }
+        .dt-table>tbody>tr>td,.dt-table>tbody>tr>th,.dt-table>tfoot>tr>td,.dt-table>tfoot>tr>th,.dt-table>thead>tr>td,.dt-table>thead>tr>th{
+            vertical-align:top;
+            padding:8px 10px;
+            white-space:nowrap
+        }
+        .dt-table>thead>tr>th,.dt-table>thead>tr>td{
+            vertical-align:bottom;
+            text-align:left;
+            border-bottom:1px solid #d9d9d9
+        }
+        .dt-table>tfoot>tr>th,.dt-table>tfoot>tr>td{
+            vertical-align:bottom;
+            text-align:left;
+            border-top:1px solid #d9d9d9
+        }
+        .dt-table th{
+            vertical-align:bottom;
+            text-align:left
+        }
+        .dt-table th.dt-sorter{
+            position:relative;
+            cursor:pointer;
+            padding-right:20px
+        }
+        .dt-table th.dt-sorter::before,.dt-table th.dt-sorter::after{
+            content:"";
+            height:0;
+            width:0;
+            position:absolute;
+            right:7px;
+            border-left:4px solid transparent;
+            border-right:4px solid transparent;
+            opacity:0.2
+        }
+        .dt-table th.dt-sorter::before{
+            border-top:4px solid #000;
+            top:18px
+        }
+        .dt-table th.dt-sorter::after{
+            border-bottom:4px solid #000;
+            border-top:4px solid transparent;
+            bottom:22px
+        }
+        .dt-table th.dt-sorter.asc::after,.dt-table th.dt-sorter.desc::before{
+            opacity:0.6
+        }
+        .hidden{
+            display:none !important;
+            opacity:0 !important
+        }
+
+        body {
+            padding: 10px;
+        }
+
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+          }
+    </style>
+
+    <img class="logo" alt="Central Dashboard" src="data:image/png;base64,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" />
+
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Level</th>
+                <th>Scope</th>
+                <th>DateTime</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <style>
+        .table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        .table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+        .table th,
+        .table td {
+            padding: 12px 15px;
+        }
+        .table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        .table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        .table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+        .table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+        
+    </style>
+    
+    <script>
+        let myTable = new JSTable("#table", {
+            serverSide: true,
+            searchable: false,
+            sortable: false,
+            ajax: '/api/logs'
+        });
+    </script>
+</body>

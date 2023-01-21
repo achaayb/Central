@@ -1,0 +1,13 @@
+credentials:
+  username: admin
+  password: password
+discord:
+  discordEnabled: True
+  discordHook: https://discord.com/api/webhooks/1066151301370613801/ZuY2-0ZbRynNhlpwLBLrSLsYmJ-04uGrgRUDzVPUU1tgNAuy-PJAab0XEwo_GDLkXVyC
+applications:
+  - scope: test::api
+    apiKey: h35hljr35k2lj
+    healthCheckEnabled: False
+    healthCheckEndpoint: https://www.google.com
+    healthCheckFrequency: 10
+    healthCheckTimeout: 5
