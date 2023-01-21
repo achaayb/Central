@@ -2,8 +2,6 @@
 
 Central is a highly efficient, lightweight application that facilitates the collection of logs from various sources, as well as the monitoring of their health status. Utilizing bottle.py and gevent technologies, Central is designed to offer a seamless user experience while maintaining high performance standards.
 
-![Central Logo](/static/logo.png)
-
 ## Installation
 
 To begin using Central, please follow the steps outlined below:
