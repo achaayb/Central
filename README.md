@@ -11,6 +11,18 @@ To begin using Central, please follow the steps outlined below:
 3. Configure the application by editing the `config.yaml` file.
 4. Launch the application by executing the command `python central.py`.
 
+## Main endpoint
+
+- The main endpoint to insert logs is `/api/logs`, Make sure to append the Authorization Header with the api key set in the config.yaml
+- Example request body: 
+
+```
+{
+    "level": "DEBUG",
+    "message": "Debug message"
+}
+```
+
 ## Usage
 
 Upon successful launch, the Central web interface can be accessed by navigating to `http://localhost:8099` in your web browser. The interface allows for the configuration of the applications to be monitored, setup of notifications through Discord, and real-time viewing of collected logs.
