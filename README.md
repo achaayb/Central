@@ -23,6 +23,11 @@ To begin using Central, please follow the steps outlined below:
 }
 ```
 
+## Dashboard
+
+- The dashboard to view the logs is located at `/dashboard`
+- Dashboard required http authentication set in the config.yaml file by default the credentials are `admin:password`
+
 ## Usage
 
 Upon successful launch, the Central web interface can be accessed by navigating to `http://localhost:8099` in your web browser. The interface allows for the configuration of the applications to be monitored, setup of notifications through Discord, and real-time viewing of collected logs.
